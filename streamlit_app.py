@@ -62,33 +62,33 @@ st.set_page_config(
 
 
 with st.sidebar:
-    st.header("Text")
+    st.header("Contenido")
     enable_text = st.toggle('Render text in PDF', value=False, disabled=not st.session_state['uploaded'],
                             help="Enable the selection and copy-paste on the PDF")
 
-    st.header("Highlights")
-    highlight_title = st.toggle('Title', value=True, disabled=not st.session_state['uploaded'])
-    highlight_person_names = st.toggle('Person Names', value=True, disabled=not st.session_state['uploaded'])
-    highlight_affiliations = st.toggle('Affiliations', value=True, disabled=not st.session_state['uploaded'])
-    highlight_head = st.toggle('Head of sections', value=True, disabled=not st.session_state['uploaded'])
-    highlight_sentences = st.toggle('Sentences', value=False, disabled=not st.session_state['uploaded'])
-    highlight_paragraphs = st.toggle('Paragraphs', value=True, disabled=not st.session_state['uploaded'])
+    st.header("Alojamientos - Secciones")
+    highlight_title = st.toggle('Hotel', value=True, disabled=not st.session_state['uploaded'])
+    highlight_person_names = st.toggle('General', value=True, disabled=not st.session_state['uploaded'])
+    highlight_affiliations = st.toggle('Habitaciones', value=True, disabled=not st.session_state['uploaded'])
+    highlight_head = st.toggle('Acomodaciones', value=True, disabled=not st.session_state['uploaded'])
+    highlight_sentences = st.toggle('Compra', value=False, disabled=not st.session_state['uploaded'])
+    highlight_paragraphs = st.toggle('Venta', value=True, disabled=not st.session_state['uploaded'])
     highlight_notes = st.toggle('Notes', value=True, disabled=not st.session_state['uploaded'])
-    highlight_formulas = st.toggle('Formulas', value=True, disabled=not st.session_state['uploaded'])
-    highlight_figures = st.toggle('Figures and tables', value=True, disabled=not st.session_state['uploaded'])
-    highlight_callout = st.toggle('References citations in text', value=True, disabled=not st.session_state['uploaded'])
-    highlight_citations = st.toggle('Citations', value=True, disabled=not st.session_state['uploaded'])
+    highlight_formulas = st.toggle('Politicas', value=True, disabled=not st.session_state['uploaded'])
+    highlight_figures = st.toggle('Figutas - Tablas', value=True, disabled=not st.session_state['uploaded'])
+    highlight_callout = st.toggle('Refe', value=True, disabled=not st.session_state['uploaded'])
+    highlight_citations = st.toggle('Citas', value=True, disabled=not st.session_state['uploaded'])
 
-    st.header("Annotations")
+    st.header("Anotaciones")
     annotation_thickness = st.slider(label="Annotation boxes border thickness", min_value=1, max_value=6, value=1)
     pages_vertical_spacing = st.slider(label="Pages vertical spacing", min_value=0, max_value=10, value=2)
 
-    st.header("Height and width")
+    st.header("Altura y Ancho")
     resolution_boost = st.slider(label="Resolution boost", min_value=1, max_value=10, value=1)
     width = st.slider(label="PDF width", min_value=100, max_value=1000, value=700)
     height = st.slider(label="PDF height", min_value=-1, max_value=10000, value=-1)
 
-    st.header("Page Selection")
+    st.header("Selección de Pagina")
     placeholder = st.empty()
 
     if not st.session_state['pages']:
@@ -101,10 +101,10 @@ with st.sidebar:
             key=1
         )
 
-    st.header("Documentation")
-    st.markdown("https://github.com/lfoppiano/structure-vision")
+    st.header("Soporte y Ayuda")
+    
     st.markdown(
-        """Upload a scientific article as PDF document and see the structures that are extracted by Grobid""")
+        """Cargue de Alojammiento con Agentes AI - Gemini Google""")
 
     if st.session_state['git_rev'] != "unknown":
         st.markdown("**Revision number**: [" + st.session_state[
@@ -145,8 +145,8 @@ def get_file_hash(fname):
     return hash_md5.hexdigest()
 
 
-st.title("Structure vision")
-st.subheader("[Grobid](https://github.com/kermitt2/grobid) structure viewer for PDF documents.")
+st.title("Formulario de Aprobación ")
+st.subheader("**Aprobación** de Alojamientos - Interpretados.")
 
 uploaded_file = st.file_uploader("Upload an article",
                                  type=("pdf"),
