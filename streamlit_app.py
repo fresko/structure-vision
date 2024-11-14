@@ -12,7 +12,7 @@ dotenv.load_dotenv(override=True)
 
 import streamlit as st
 
-_URL_ID = "/home/opc/project/form_approve/structure-vision/grobid"
+_URL_ID = "grobid"
 os.environ["_URL_"] = _URL_ID
 
 if 'doc_id' not in st.session_state:
