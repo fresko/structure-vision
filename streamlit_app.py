@@ -12,6 +12,9 @@ dotenv.load_dotenv(override=True)
 
 import streamlit as st
 
+_URL_ID = "/home/opc/project/form_approve/structure-vision/grobid"
+os.environ["_URL_"] = _URL_ID
+
 if 'doc_id' not in st.session_state:
     st.session_state['doc_id'] = None
 
@@ -121,7 +124,7 @@ def new_file():
 @st.cache_resource
 def init_grobid():
     grobid_client = GrobidClient(
-        grobid_server=os.environ["GROBID_URL"],
+        grobid_server=os.environ["_URL_"],
         batch_size=1000,
         coordinates=["p", "s", "persName", "biblStruct", "figure", "formula", "head", "note", "title", "ref",
                      "affiliation"],
