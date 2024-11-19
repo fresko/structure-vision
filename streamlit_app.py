@@ -54,6 +54,41 @@ st.set_page_config(
     }
 )
 
+# Ejemplo de estructura para annotations
+annotations = [
+    {
+        "page": 1,
+        "type": "title",
+        "content": "Análisis de Datos con Python",
+        "coordinates": [100, 200, 300, 400]
+    },
+    {
+        "page": 1,
+        "type": "author",
+        "content": "Juan Pérez",
+        "coordinates": [100, 450, 300, 500]
+    },
+    {
+        "page": 2,
+        "type": "section",
+        "content": "Introducción",
+        "coordinates": [100, 100, 300, 150]
+    }
+]
+
+# Ejemplo de estructura para pages
+pages = [
+    {
+        "page_number": 1,
+        "text": "Análisis de Datos con Python\nJuan Pérez\n...",
+        "dimensions": [595, 842]
+    },
+    {
+        "page_number": 2,
+        "text": "Introducción\nEn este documento, exploraremos...",
+        "dimensions": [595, 842]
+    }
+]
 # from glob import glob
 # import streamlit as st
 #
@@ -137,7 +172,7 @@ def init_grobid():
     return grobid_processor
 
 
-init_grobid()
+#init_grobid()
 
 
 def get_file_hash(fname):
@@ -163,7 +198,7 @@ if uploaded_file:
             tmp_file = NamedTemporaryFile()
             tmp_file.write(bytearray(binary))
             st.session_state['binary'] = binary
-            annotations, pages = init_grobid().process_structure(tmp_file.name)
+           # annotations, pages = init_grobid().process_structure(tmp_file.name)
 
             st.session_state['annotations'] = annotations if not st.session_state['annotations'] else st.session_state[
                 'annotations']
