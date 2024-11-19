@@ -207,10 +207,11 @@ if uploaded_file:
     if st.session_state['pages']:
         st.session_state['page_selection'] = placeholder.multiselect(
             "Select pages to display",
-            options=list(range(1, st.session_state['pages'])),
+            #options=list(range(1, st.session_state['pages'])),
+            options=list(range(1, 1)),
             default=[],
             help="The page number considered is the PDF number and not the document page number.",
-            disabled=not st.session_state['pages'],
+            disabled=not 1,
             key=2
         )
 
