@@ -1,20 +1,12 @@
 import os
 from hashlib import blake2b
 from tempfile import NamedTemporaryFile
-
 import dotenv
-from grobid_client.grobid_client import GrobidClient
 from streamlit_pdf_viewer import pdf_viewer
-
-from grobid.grobid_processor import GrobidProcessor
-
 dotenv.load_dotenv(override=True)
-
 import streamlit as st
 
-_URL_ID = "grobid"
-os.environ["_URL_"] = _URL_ID
-
+# Manejo de Sessiones
 if 'doc_id' not in st.session_state:
     st.session_state['doc_id'] = None
 
@@ -43,14 +35,15 @@ if 'pages' not in st.session_state:
 if 'page_selection' not in st.session_state:
     st.session_state['page_selection'] = []
 
+# Configuración de la página de Streamlit
 st.set_page_config(
-    page_title="Structure vision",
+    page_title="Formulario de Aprobación",
     page_icon="",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'https://github.com/lfoppiano/pdf-struct',
-        'Report a bug': "https://github.com/lfoppiano/pdf-struct/issues",
-        'About': "View the structures extracted by Grobid."
+        'Get Help': 'MagIA',
+        'Report a bug': "agente@digitalmagia.com",
+        'About': "Forma para completar ,corregir y aprobar los datos antes de enviarlo a plataforma de alojamiento."
     }
 )
 
@@ -89,18 +82,10 @@ pages = [
         "dimensions": [595, 842]
     }
 ]
-# from glob import glob
-# import streamlit as st
-#
-# paths = glob("/Users/lfoppiano/kDrive/library/articles/materials informatics/polymers/*.pdf")
-# for id, (tab,path) in enumerate(zip(st.tabs(paths),paths)):
-#     with tab:
-#         with st.container(height=600):
-#             pdf_viewer(path, width=500, render_text=True)
 
-
+# Configuración de la barra lateral
 with st.sidebar:
-    st.header("Contenido")
+    st.header("Contenido del PDF")
     enable_text = st.toggle('Render text in PDF', value=False, disabled=not st.session_state['uploaded'],
                             help="Enable the selection and copy-paste on the PDF")
 
@@ -146,9 +131,10 @@ with st.sidebar:
 
     if st.session_state['git_rev'] != "unknown":
         st.markdown("**Revision number**: [" + st.session_state[
-            'git_rev'] + "](https://github.com/lfoppiano/structure-vision/commit/" + st.session_state['git_rev'] + ")")
+            'git_rev'] + "](https://digitalmagia.com" + st.session_state['git_rev'] + ")")
 
 
+# Función para manejar la carga de un nuevo archivo
 def new_file():
     st.session_state['doc_id'] = None
     st.session_state['uploaded'] = True
@@ -156,25 +142,24 @@ def new_file():
     st.session_state['binary'] = None
 
 
-@st.cache_resource
-def init_grobid():
-    grobid_client = GrobidClient(
-        grobid_server=os.environ["_URL_"],
-        batch_size=1000,
-        coordinates=["p", "s", "persName", "biblStruct", "figure", "formula", "head", "note", "title", "ref",
-                     "affiliation"],
-        sleep_time=5,
-        timeout=60,
-        check_server=True
-    )
-    grobid_processor = GrobidProcessor(grobid_client)
-
-    return grobid_processor
-
-
-#init_grobid()
+# Inicialización del cliente Grobid
+#@st.cache_resource
+#def init_grobid():
+#    grobid_client = GrobidClient(
+#        grobid_server=os.environ["_URL_"],
+#        batch_size=1000,
+#        coordinates=["p", "s", "persName", "biblStruct", "figure", "formula", "head", "note", "title", "ref",
+#                     "affiliation"],
+#        sleep_time=5,
+#        timeout=60,
+#        check_server=True
+#    )
+#    grobid_processor = GrobidProcessor(grobid_client)
+#
+#    return grobid_processor
 
 
+# Función para obtener el hash de un archivo
 def get_file_hash(fname):
     hash_md5 = blake2b()
     with open(fname, "rb") as f:
@@ -183,9 +168,11 @@ def get_file_hash(fname):
     return hash_md5.hexdigest()
 
 
+# Título y subtítulo de la aplicación
 st.title("Formulario de Aprobación ")
 st.subheader("**Aprobación** de Alojamientos - Interpretados.")
 
+# Carga de archivo PDF
 uploaded_file = st.file_uploader("Upload an article",
                                  type=("pdf"),
                                  on_change=new_file,
@@ -215,6 +202,7 @@ if uploaded_file:
             key=2
         )
 
+    # Renderizado del documento PDF
     with (st.spinner("Rendering PDF document")):
         annotations = st.session_state['annotations']
 
