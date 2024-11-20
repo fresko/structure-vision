@@ -42,7 +42,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://www.digitalmagia.com',
-        'Report a bug': "agente@digitalmagia.com",
+        'Report a bug': "https://www.digitalmagia.com",
         'About': "Forma para completar ,corregir y aprobar los datos antes de enviarlo a plataforma de alojamiento."
     }
 )
