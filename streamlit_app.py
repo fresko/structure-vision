@@ -39,7 +39,7 @@ if 'page_selection' not in st.session_state:
 st.set_page_config(
     page_title="Formulario de Aprobación",
     page_icon="🤖",
-    initial_sidebar_state="collapsed",  # Cambiar a 'collapsed' para permitir ocultar la barra lateral   
+    initial_sidebar_state="expanded",  # Cambiar a 'collapsed' para permitir ocultar la barra lateral   
     menu_items={
         'Get Help': 'https://www.digitalmagia.com',
         'Report a bug': "https://www.digitalmagia.com",
@@ -93,7 +93,7 @@ def new_file():
     st.session_state['uploaded'] = True
     st.session_state['annotations'] = []
     st.session_state['binary'] = None
-    
+
 # Configuración de la barra lateral
 with st.sidebar:
     # Título y subtítulo de la aplicación
@@ -248,7 +248,7 @@ if uploaded_file:
             annotations = list(filter(lambda a: a['type'] != 'affiliation', annotations))
 
         if height > -1:
-            pdf_viewer(
+            tab1.pdf_viewer(
                 input=st.session_state['binary'],
                 width=width,
                 height=height,
@@ -260,7 +260,7 @@ if uploaded_file:
                 resolution_boost=resolution_boost
             )
         else:
-            pdf_viewer(
+            tab1.pdf_viewer(
                 input=st.session_state['binary'],
                 width=width,
                 annotations=annotations,
