@@ -281,5 +281,5 @@ with col2:
     st.text_input(label='Correo Electrónico')
     st.text_input(label='Teléfono')
     st.text_area(label='Mensaje')
-    submit_button = st.form_submit_button(label='Enviar')
+    submit_button = st.button(label='Enviar')
 
