@@ -41,7 +41,7 @@ st.set_page_config(
     page_icon="",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'MagIA',
+        'Get Help': 'https://www.digitalmagia.com',
         'Report a bug': "agente@digitalmagia.com",
         'About': "Forma para completar ,corregir y aprobar los datos antes de enviarlo a plataforma de alojamiento."
     }
@@ -131,7 +131,7 @@ with st.sidebar:
 
     if st.session_state['git_rev'] != "unknown":
         st.markdown("**Revision number**: [" + st.session_state[
-            'git_rev'] + "](https://digitalmagia.com" + st.session_state['git_rev'] + ")")
+            'git_rev'] + "](http://digitalmagia.com" + st.session_state['git_rev'] + ")")
 
 
 # Función para manejar la carga de un nuevo archivo
