@@ -48,7 +48,7 @@ st.set_page_config(
 )
 #
 # Crear dos columnas
-col1, col2 = st.columns(2)
+col1, col2 ,col3 = st.columns(3)
 
 # Ejemplo de estructura para annotations
 annotations = [
@@ -206,43 +206,44 @@ if uploaded_file:
         )
 
     # Renderizado del documento PDF
-    with (st.spinner("Rendering PDF document")):
-        annotations = st.session_state['annotations']
+    with col1:
+       st.spinner("Rendering PDF document")
+       annotations = st.session_state['annotations']
 
-        if not highlight_sentences:
+    if not highlight_sentences:
             annotations = list(filter(lambda a: a['type'] != 's', annotations))
 
-        if not highlight_paragraphs:
+    if not highlight_paragraphs:
             annotations = list(filter(lambda a: a['type'] != 'p', annotations))
 
-        if not highlight_title:
+    if not highlight_title:
             annotations = list(filter(lambda a: a['type'] != 'title', annotations))
 
-        if not highlight_head:
+    if not highlight_head:
             annotations = list(filter(lambda a: a['type'] != 'head', annotations))
 
-        if not highlight_citations:
+    if not highlight_citations:
             annotations = list(filter(lambda a: a['type'] != 'biblStruct', annotations))
 
-        if not highlight_notes:
+    if not highlight_notes:
             annotations = list(filter(lambda a: a['type'] != 'note', annotations))
 
-        if not highlight_callout:
+    if not highlight_callout:
             annotations = list(filter(lambda a: a['type'] != 'ref', annotations))
 
-        if not highlight_formulas:
+    if not highlight_formulas:
             annotations = list(filter(lambda a: a['type'] != 'formula', annotations))
 
-        if not highlight_person_names:
+    if not highlight_person_names:
             annotations = list(filter(lambda a: a['type'] != 'persName', annotations))
 
-        if not highlight_figures:
+    if not highlight_figures:
             annotations = list(filter(lambda a: a['type'] != 'figure', annotations))
 
-        if not highlight_affiliations:
+    if not highlight_affiliations:
             annotations = list(filter(lambda a: a['type'] != 'affiliation', annotations))
 
-        if height > -1:
+    if height > -1:
             pdf_viewer(
                 input=st.session_state['binary'],
                 width=width,
@@ -254,7 +255,7 @@ if uploaded_file:
                 render_text=enable_text,
                 resolution_boost=resolution_boost
             )
-        else:
+    else:
             pdf_viewer(
                 input=st.session_state['binary'],
                 width=width,
@@ -265,7 +266,8 @@ if uploaded_file:
                 render_text=enable_text,
                 resolution_boost=resolution_boost
             )
-    with col1:
+
+    with col2:
         st.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         st.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
         st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
@@ -273,7 +275,7 @@ if uploaded_file:
             st.write("Interpretación iniciada...")
 
     # Formulario con cuatro campos y un botón de envío
-    with col2:
+    with col3:
         st.subheader("Formulario de Aprobación")
         st.form(key='approval_form')
         st.text_input(label='Nombre')
