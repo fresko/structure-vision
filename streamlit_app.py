@@ -87,8 +87,24 @@ pages = [
     }
 ]
 
+# Función para manejar la carga de un nuevo archivo
+def new_file():
+    st.session_state['doc_id'] = None
+    st.session_state['uploaded'] = True
+    st.session_state['annotations'] = []
+    st.session_state['binary'] = None
+    
 # Configuración de la barra lateral
 with st.sidebar:
+    # Título y subtítulo de la aplicación
+    st.title("Formulario de Aprobación ")
+    st.subheader("**Aprobación** de Alojamientos - Interpretados.")
+
+    # Carga de archivo PDF
+    uploaded_file = st.file_uploader("Upload an article",
+                                 type=("pdf"),
+                                 on_change=new_file,
+                                 help="The full-text is extracted using Gen AI Gemini,GPT4. ")
     st.header("Contenido del PDF")
     enable_text = st.toggle('Render text in PDF', value=False, disabled=not st.session_state['uploaded'],
                             help="Enable the selection and copy-paste on the PDF")
@@ -138,12 +154,7 @@ with st.sidebar:
             'git_rev'] + "](http://digitalmagia.com" + st.session_state['git_rev'] + ")")
 
 
-# Función para manejar la carga de un nuevo archivo
-def new_file():
-    st.session_state['doc_id'] = None
-    st.session_state['uploaded'] = True
-    st.session_state['annotations'] = []
-    st.session_state['binary'] = None
+
 
 
 # Inicialización del cliente Grobid
@@ -172,20 +183,12 @@ def get_file_hash(fname):
     return hash_md5.hexdigest()
 
 
-# Título y subtítulo de la aplicación
-st.title("Formulario de Aprobación ")
-st.subheader("**Aprobación** de Alojamientos - Interpretados.")
 
-# Carga de archivo PDF
-uploaded_file = st.file_uploader("Upload an article",
-                                 type=("pdf"),
-                                 on_change=new_file,
-                                 help="The full-text is extracted using Gen AI Gemini,GPT4. ")
 
 if uploaded_file:
     if not st.session_state['binary']:
         with col1:
-            st.spinner('Reading file, calling Grobid...')
+            st.spinner('Reading file, calling ...')
             binary = uploaded_file.getvalue()
             tmp_file = NamedTemporaryFile()
             tmp_file.write(bytearray(binary))
