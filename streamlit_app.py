@@ -211,65 +211,66 @@ if uploaded_file:
         )
 
     # Renderizado del documento PDF
-    with (st.spinner("Rendering PDF document")):
-        annotations = st.session_state['annotations']
+    with tab1:
+        with st.spinner("Rendering PDF document"):
+            annotations = st.session_state['annotations']
 
-        if not highlight_sentences:
-            annotations = list(filter(lambda a: a['type'] != 's', annotations))
+            if not highlight_sentences:
+                annotations = list(filter(lambda a: a['type'] != 's', annotations))
 
-        if not highlight_paragraphs:
-            annotations = list(filter(lambda a: a['type'] != 'p', annotations))
+            if not highlight_paragraphs:
+                annotations = list(filter(lambda a: a['type'] != 'p', annotations))
 
-        if not highlight_title:
-            annotations = list(filter(lambda a: a['type'] != 'title', annotations))
+            if not highlight_title:
+                annotations = list(filter(lambda a: a['type'] != 'title', annotations))
 
-        if not highlight_head:
-            annotations = list(filter(lambda a: a['type'] != 'head', annotations))
+            if not highlight_head:
+                annotations = list(filter(lambda a: a['type'] != 'head', annotations))
 
-        if not highlight_citations:
-            annotations = list(filter(lambda a: a['type'] != 'biblStruct', annotations))
+            if not highlight_citations:
+                annotations = list(filter(lambda a: a['type'] != 'biblStruct', annotations))
 
-        if not highlight_notes:
-            annotations = list(filter(lambda a: a['type'] != 'note', annotations))
+            if not highlight_notes:
+                annotations = list(filter(lambda a: a['type'] != 'note', annotations))
 
-        if not highlight_callout:
-            annotations = list(filter(lambda a: a['type'] != 'ref', annotations))
+            if not highlight_callout:
+                annotations = list(filter(lambda a: a['type'] != 'ref', annotations))
 
-        if not highlight_formulas:
-            annotations = list(filter(lambda a: a['type'] != 'formula', annotations))
+            if not highlight_formulas:
+                annotations = list(filter(lambda a: a['type'] != 'formula', annotations))
 
-        if not highlight_person_names:
-            annotations = list(filter(lambda a: a['type'] != 'persName', annotations))
+            if not highlight_person_names:
+                annotations = list(filter(lambda a: a['type'] != 'persName', annotations))
 
-        if not highlight_figures:
-            annotations = list(filter(lambda a: a['type'] != 'figure', annotations))
+            if not highlight_figures:
+                annotations = list(filter(lambda a: a['type'] != 'figure', annotations))
 
-        if not highlight_affiliations:
-            annotations = list(filter(lambda a: a['type'] != 'affiliation', annotations))
+            if not highlight_affiliations:
+                annotations = list(filter(lambda a: a['type'] != 'affiliation', annotations))
 
-        if height > -1:
-            tab1.pdf_viewer(
-                input=st.session_state['binary'],
-                width=width,
-                height=height,
-                annotations=annotations,
-                pages_vertical_spacing=pages_vertical_spacing,
-                annotation_outline_size=annotation_thickness,
-                pages_to_render=st.session_state['page_selection'],
-                render_text=enable_text,
-                resolution_boost=resolution_boost
-            )
-        else:
-            tab1.pdf_viewer(
-                input=st.session_state['binary'],
-                width=width,
-                annotations=annotations,
-                pages_vertical_spacing=pages_vertical_spacing,
-                annotation_outline_size=annotation_thickness,
-                pages_to_render=st.session_state['page_selection'],
-                render_text=enable_text,
-                resolution_boost=resolution_boost
-            )
+            if height > -1:
+                pdf_viewer(
+                    input=st.session_state['binary'],
+                    width=width,
+                    height=height,
+                    annotations=annotations,
+                    pages_vertical_spacing=pages_vertical_spacing,
+                    annotation_outline_size=annotation_thickness,
+                    pages_to_render=st.session_state['page_selection'],
+                    render_text=enable_text,
+                    resolution_boost=resolution_boost
+                )
+            else:
+                pdf_viewer(
+                    input=st.session_state['binary'],
+                    width=width,
+                    annotations=annotations,
+                    pages_vertical_spacing=pages_vertical_spacing,
+                    annotation_outline_size=annotation_thickness,
+                    pages_to_render=st.session_state['page_selection'],
+                    render_text=enable_text,
+                    resolution_boost=resolution_boost
+                )
     with col2:
         tab2.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
