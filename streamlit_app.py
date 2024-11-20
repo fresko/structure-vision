@@ -265,21 +265,20 @@ if uploaded_file:
                 render_text=enable_text,
                 resolution_boost=resolution_boost
             )
+    with col1:
+        st.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
+        st.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
+        st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
+        if st.button("Iniciar Interpretación"):
+            st.write("Interpretación iniciada...")
 
-with col1:
-    st.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
-    st.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
-    st.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
-    if st.button("Iniciar Interpretación"):
-        st.write("Interpretación iniciada...")
-
-# Formulario con cuatro campos y un botón de envío
-with col2:
-    st.subheader("Formulario de Aprobación")
-    st.form(key='approval_form')
-    st.text_input(label='Nombre')
-    st.text_input(label='Correo Electrónico')
-    st.text_input(label='Teléfono')
-    st.text_area(label='Mensaje')
-    submit_button = st.button(label='Enviar')
+    # Formulario con cuatro campos y un botón de envío
+    with col2:
+        st.subheader("Formulario de Aprobación")
+        st.form(key='approval_form')
+        st.text_input(label='Nombre')
+        st.text_input(label='Correo Electrónico')
+        st.text_input(label='Teléfono')
+        st.text_area(label='Mensaje')
+        submit_button = st.button(label='Enviar')
 
