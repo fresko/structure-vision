@@ -38,9 +38,8 @@ if 'page_selection' not in st.session_state:
 # Configuración de la página de Streamlit
 st.set_page_config(
     page_title="Formulario de Aprobación",
-    page_icon="",
-    initial_sidebar_state="collapsed",  # Cambiar a 'collapsed' para permitir ocultar la barra lateral
-    layout="wide",  # Cambiar el diseño a 'wide' para una barra lateral horizontal
+    page_icon="🤖",
+    initial_sidebar_state="collapsed",  # Cambiar a 'collapsed' para permitir ocultar la barra lateral   
     menu_items={
         'Get Help': 'https://www.digitalmagia.com',
         'Report a bug': "https://www.digitalmagia.com",
