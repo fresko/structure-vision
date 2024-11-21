@@ -1,0 +1,120 @@
+{
+    "HotelContent": {
+      "@Code": "InterContinental Miami",
+      "@JPCode": "JP046300",
+      "Address": {
+        "Address": "120 Chopin Plaza, Miami, FL 33131",
+        "Latitude": "25.77427",
+        "Longitude": "-80.19366",
+        "PostalCode": "33131"
+      },
+      "ContactInfo": {
+        "Emails": {
+          "Email": {
+            "#text": "Peio.cuevas@seeusatours.com",
+            "@Type": "Business"
+          }
+        },
+        "PhoneNumbers": {
+          "PhoneNumber": {
+            "#text": "305-577-1000",
+            "@Type": "Business"
+          }
+        }
+      },
+      "Descriptions": {
+        "Description": [
+          {
+            "#text": "The InterContinental Miami is a luxurious hotel located in the heart of Miami. It offers a variety of amenities, including a swimming pool, fitness center, spa, and several restaurants.",
+            "@Type": "Overview"
+          },
+          {
+            "#text": "The hotel is also conveniently located near many of Miami's top attractions, including South Beach, the Art Deco Historic District, and the Wynwood Walls.",
+            "@Type": "Location"
+          },
+          {
+            "#text": "The InterContinental Miami is the perfect place to stay for business travelers and leisure travelers alike.",
+            "@Type": "Summary"
+          }
+        ]
+      },
+      "Features": {
+        "Feature": [
+          {
+            "#text": "Swimming pool",
+            "@Type": "Amenity"
+          },
+          {
+            "#text": "Fitness center",
+            "@Type": "Amenity"
+          },
+          {
+            "#text": "Spa",
+            "@Type": "Amenity"
+          },
+          {
+            "#text": "Restaurants",
+            "@Type": "Amenity"
+          },
+          {
+            "#text": "Meeting rooms",
+            "@Type": "Amenity"
+          },
+          {
+            "#text": "Business center",
+            "@Type": "Amenity"
+          }
+        ]
+      },
+      "HotelCategory": {
+        "#text": "Luxury Hotel",
+        "@Type": "Category"
+      },
+      "HotelName": "InterContinental Miami",
+      "HotelRooms": {
+        "HotelRoom": [
+          {
+            "@Code": "City/Partial Bay View",
+            "Description": "Rooms with views of the city or partial bay views",
+            "Name": "City/Partial Bay View"
+          },
+          {
+            "@Code": "Skyline View",
+            "Description": "Rooms with views of the Miami skyline",
+            "Name": "Skyline View"
+          },
+          {
+            "@Code": "Bay View",
+            "Description": "Rooms with views of Biscayne Bay",
+            "Name": "Bay View"
+          },
+          {
+            "@Code": "Ocean View",
+            "Description": "Rooms with direct ocean views",
+            "Name": "Ocean View"
+          }
+        ]
+      },
+      "HotelType": {
+        "#text": "Hotel",
+        "@Type": "Type"
+      },
+      "Images": {
+        "Image": {
+          "@Type": "HotelExterior",
+          "FileName": "InterContinental_Miami_Exterior.jpg"
+        }
+      },
+      "TimeInformation": {
+        "CheckTime": {
+          "@CheckIn": "3:00PM",
+          "@CheckOut": "12:00PM"
+        }
+      },
+      "Zone": {
+        "@Code": "MIA",
+        "@JPDCode": "JP046300",
+        "Name": "Miami"
+      }
+    }
+  }

@@ -100,8 +100,7 @@ def load_json(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
 
-# Cargar el contenido del archivo JSON
-json_data = load_json('json/contrato_v1.json')
+
 
 # Configuración de la barra lateral
 with st.sidebar:
@@ -286,6 +285,9 @@ if uploaded_file:
 
     # Formulario con cuatro campos y un botón de envío
     with col3:
+
+        # Cargar el contenido del archivo JSON
+        json_data = load_json('/json/contrato_v1.json')   
       
         tab2.header("Formulario de Aprobación")
         for key, value in json_data.items():
@@ -300,7 +302,12 @@ if uploaded_file:
             elif isinstance(value, dict):
                 tab2.text_area(label=key, value=json.dumps(value, indent=2))
 
+
+          # Botón de envío    
             submit_button = tab2.button(label='Enviar')
+
+            if submit_button:
+                tab2.success("Formulario enviado con éxito!") 
 
 
 
