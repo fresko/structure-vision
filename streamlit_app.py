@@ -295,8 +295,8 @@ if uploaded_file:
         hotel_name = json_data['HotelName']
         hotel_rooms = json_data['HotelRooms']['HotelRoom']
 
-        print(features)
-        print( hotel_category)
+        tab2.text_area(features)
+        tab2.text_area( hotel_category)
 
          # Título del formulario
             
