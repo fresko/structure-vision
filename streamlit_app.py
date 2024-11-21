@@ -8,6 +8,13 @@ dotenv.load_dotenv(override=True)
 import streamlit as st
 from flatten_json import flatten # type: ignore
 
+import google.generativeai as genai
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import time
+import google.generativeai as genai
+
+
 
 
 # Manejo de Sessiones
@@ -141,6 +148,82 @@ def create_dynamic_form(json_data):
         if submit_button:
             st.success("Formulario enviado exitosamente!")
             st.json(form_data)
+#-------------------------------
+
+def upload_to_gemini(path, mime_type=None):
+  """Uploads the given file to Gemini.
+
+  See https://ai.google.dev/gemini-api/docs/prompting_with_media
+  """
+  file = genai.upload_file(path, mime_type=mime_type)
+  print(f"Uploaded file '{file.display_name}' as: {file.uri}")
+  return file
+
+def wait_for_files_active(files):
+  """Waits for the given files to be active.
+
+  Some files uploaded to the Gemini API need to be processed before they can be
+  used as prompt inputs. The status can be seen by querying the file's "state"
+  field.
+
+  This implementation uses a simple blocking polling loop. Production code
+  should probably employ a more sophisticated approach.
+  """
+  print("Waiting for file processing...")
+  for name in (file.name for file in files):
+    file = genai.get_file(name)
+    while file.state.name == "PROCESSING":
+      print(".", end="", flush=True)
+      time.sleep(10)
+      file = genai.get_file(name)
+    if file.state.name != "ACTIVE":
+      raise Exception(f"File {file.name} failed to process")
+  print("...all files ready")
+  print()
+
+def crete_prompt(path_file):
+    prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
+    # Create the model
+    generation_config = {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 8192,
+    "response_mime_type": "application/json",
+    #"response_schema": schema,  # Add the schema here
+    }
+
+    model = genai.GenerativeModel(
+    model_name="gemini-1.5-flash-002",
+    generation_config=generation_config,
+    )
+
+    # TODO Make these files available on the local file system
+    # You may need to update the file paths
+    files = [
+    #upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
+    upload_to_gemini(path_file, mime_type="application/pdf"),
+    ]
+
+    # Some files have a processing delay. Wait for them to be ready.
+    wait_for_files_active(files)
+
+    chat_session = model.start_chat(
+    history=[
+        {
+        "role": "user",
+        "parts": [
+            files[0],
+            prompt_jsonsimple,
+        ],
+        },
+    ]
+    )
+
+    response = chat_session.send_message("INSERT_INPUT_HERE")
+    
+    return response
+
 
 # Configuración de la barra lateral
 with st.sidebar:
@@ -320,6 +403,15 @@ if uploaded_file:
         tab2.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
         tab2.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
+        
+        GOOGLE_API_KEY = st.text_input('GOOGLE_API_KEY', type='password')
+        os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+        genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+
+        prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
+        tab2.write("Cargue el archivo PDF para iniciar la interpretación." + uploaded_file.name)
+       # resonpse_llm = crete_prompt(uploaded_file.name)
+
         btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
             tab2.write("Interpretación iniciada...")
@@ -359,7 +451,7 @@ if uploaded_file:
         
                                
                  # Botón de envío    
-                submit_button = form.form_submit_button(label='Enviar')
+                    submit_button = form.form_submit_button(label='Enviar')
 
                 #if submit_button:
                  #   tab2.success("Formulario enviado con éxito!") 
