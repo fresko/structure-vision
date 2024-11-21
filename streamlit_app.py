@@ -285,20 +285,20 @@ if uploaded_file:
             tab2.write("Interpretación iniciada...")
 
     # Formulario con cuatro campos y un botón de envío
-    with col3:
+        with col3:
 
         # Cargar el contenido del archivo JSON
-        json_data = load_json('json/json_test.json')   
-        if btn_agente:
-            form = tab2.form(key='approval_form')
-            for key, value in json_data.items():
-                form.text_input(label=key, value=value)            
+            json_data = load_json('json/json_test.json') 
+            if btn_agente:
+                form = tab2.form(key='approval_form')
+                for key, value in json_data.items():
+                    form.text_input(label=key, value=value)            
 
-            # Botón de envío    
-            submit_button = form.form_submit_button(label='Enviar')
+                # Botón de envío    
+                submit_button = form.form_submit_button(label='Enviar')
 
-            if submit_button:
-                tab2.success("Formulario enviado con éxito!") 
+                if submit_button:
+                    tab2.success("Formulario enviado con éxito!") 
 
 
 
