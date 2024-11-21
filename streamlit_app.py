@@ -3,6 +3,7 @@ from hashlib import blake2b
 from tempfile import NamedTemporaryFile
 import dotenv
 from streamlit_pdf_viewer import pdf_viewer
+import json  # Importar el módulo json
 dotenv.load_dotenv(override=True)
 import streamlit as st
 
@@ -94,11 +95,19 @@ def new_file():
     st.session_state['annotations'] = []
     st.session_state['binary'] = None
 
+# Función para cargar el archivo JSON
+def load_json(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+# Cargar el contenido del archivo JSON
+json_data = load_json('json/contrato_v1.json')
+
 # Configuración de la barra lateral
 with st.sidebar:
     # Título y subtítulo de la aplicación
     st.title("Formulario de Aprobación ")
-    st.subheader("**Aprobación** de Alojamientos - Interpretados.")
+    st.subheader("Cargue de Alojammiento con Agentes AI .")
 
     # Carga de archivo PDF
     uploaded_file = st.file_uploader("Upload an article",
@@ -153,10 +162,7 @@ with st.sidebar:
         st.markdown("**Revision number**: [" + st.session_state[
             'git_rev'] + "](http://digitalmagia.com" + st.session_state['git_rev'] + ")")
 
-
-
-
-
+    
 # Inicialización del cliente Grobid
 #@st.cache_resource
 #def init_grobid():
@@ -280,11 +286,22 @@ if uploaded_file:
 
     # Formulario con cuatro campos y un botón de envío
     with col3:
-        tab2.subheader("Formulario de Aprobación")
-        tab2.form(key='approval_form')
-        tab2.text_input(label='Nombre')
-        tab2.text_input(label='Correo Electrónico')
-        tab2.text_input(label='Teléfono')
-        tab2.text_area(label='Mensaje')
-        submit_button = tab2.button(label='Enviar')
+      
+        tab2.header("Formulario de Aprobación")
+        for key, value in json_data.items():
+            if isinstance(value, str):
+                tab2.text_input(label=key, value=value)
+            elif isinstance(value, int):
+                tab2.number_input(label=key, value=value)
+            elif isinstance(value, bool):
+                tab2.checkbox(label=key, value=value)
+            elif isinstance(value, list):
+                tab2.multiselect(label=key, options=value, default=value)
+            elif isinstance(value, dict):
+                tab2.text_area(label=key, value=json.dumps(value, indent=2))
+
+            submit_button = tab2.button(label='Enviar')
+
+
+
 

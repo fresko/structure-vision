@@ -1,0 +1,342 @@
+{
+    "type": "object",
+    "description": "Hotel information schema",
+    "properties": {
+      "HotelContent": {
+        "type": "object",
+        "description": "Hotel content information",
+        "properties": {
+          "@Code": {
+            "type": "string",
+            "description": "Hotel code"
+          },
+          "@JPCode": {
+            "type": "string",
+            "description": "JP046300"
+          },
+          "HotelName": {
+            "type": "string",
+            "description": "Hotel name"
+          },
+          "Zone": {
+            "type": "object",
+            "description": "Hotel zone information",
+            "properties": {
+              "@JPDCode": {
+                "type": "string",
+                "description": "Zone code in Japanese"
+              },
+              "@Code": {
+                "type": "string",
+                "description": "Zone code"
+              },
+              "Name": {
+                "type": "string",
+                "description": "Zone name"
+              }
+            },
+            "required": [
+              "@JPDCode",
+              "@Code",
+              "Name"
+            ]
+          },
+          "HotelCategory": {
+            "type": "object",
+            "description": "Hotel category information",
+            "properties": {
+              "@Type": {
+                "type": "string",
+                "description": "Category type"
+              },
+              "#text": {
+                "type": "string",
+                "description": "Category name"
+              }
+            },
+            "required": [
+              "@Type",
+              "#text"
+            ]
+          },
+          "HotelType": {
+            "type": "object",
+            "description": "Hotel type information",
+            "properties": {
+              "@Type": {
+                "type": "string",
+                "description": "Type type"
+              },
+              "#text": {
+                "type": "string",
+                "description": "Type name"
+              }
+            },
+            "required": [
+              "@Type",
+              "#text"
+            ]
+          },
+          "Address": {
+            "type": "object",
+            "description": "Hotel address information",
+            "properties": {
+              "Address": {
+                "type": "string",
+                "description": "Hotel address"
+              },
+              "PostalCode": {
+                "type": "string",
+                "description": "Hotel postal code"
+              },
+              "Latitude": {
+                "type": "string",
+                "description": "Hotel latitude"
+              },
+              "Longitude": {
+                "type": "string",
+                "description": "Hotel longitude"
+              }
+            },
+            "required": [
+              "Address",
+              "PostalCode",
+              "Latitude",
+              "Longitude"
+            ]
+          },
+          "ContactInfo": {
+            "type": "object",
+            "description": "Hotel contact information",
+            "properties": {
+              "PhoneNumbers": {
+                "type": "object",
+                "description": "Phone number information",
+                "properties": {
+                  "PhoneNumber": {
+                    "type": "object",
+                    "description": "Phone number information",
+                    "properties": {
+                      "@Type": {
+                        "type": "string",
+                        "description": "Phone number type"
+                      },
+                      "#text": {
+                        "type": "string",
+                        "description": "Phone number"
+                      }
+                    },
+                    "required": [
+                      "@Type",
+                      "#text"
+                    ]
+                  }
+                },
+                "required": [
+                  "PhoneNumber"
+                ]
+              },
+              "Emails": {
+                "type": "object",
+                "description": "Email address information",
+                "properties": {
+                  "Email": {
+                    "type": "object",
+                    "description": "Email address information",
+                    "properties": {
+                      "@Type": {
+                        "type": "string",
+                        "description": "Email type"
+                      },
+                      "#text": {
+                        "type": "string",
+                        "description": "Email address"
+                      }
+                    },
+                    "required": [
+                      "@Type",
+                      "#text"
+                    ]
+                  }
+                },
+                "required": [
+                  "Email"
+                ]
+              }
+            },
+            "required": [
+              "PhoneNumbers",
+              "Emails"
+            ]
+          },
+          "Images": {
+            "type": "object",
+            "description": "Hotel image information",
+            "properties": {
+              "Image": {
+                "type": "object",
+                "description": "Hotel image information",
+                "properties": {
+                  "@Type": {
+                    "type": "string",
+                    "description": "Image type"
+                  },
+                  "FileName": {
+                    "type": "string",
+                    "description": "Image file name"
+                  }
+                },
+                "required": [
+                  "@Type",
+                  "FileName"
+                ]
+              }
+            },
+            "required": [
+              "Image"
+            ]
+          },
+          "Descriptions": {
+            "type": "object",
+            "description": "Hotel description information",
+            "properties": {
+              "Description": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Hotel description information",
+                  "properties": {
+                    "@Type": {
+                      "type": "string",
+                      "description": "Description type"
+                    },
+                    "#text": {
+                      "type": "string",
+                      "description": "Description text"
+                    }
+                  },
+                  "required": [
+                    "@Type",
+                    "#text"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Description"
+            ]
+          },
+          "Features": {
+            "type": "object",
+            "description": "Hotel feature information",
+            "properties": {
+              "Feature": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Hotel feature information",
+                  "properties": {
+                    "@Type": {
+                      "type": "string",
+                      "description": "Feature type"
+                    },
+                    "#text": {
+                      "type": "string",
+                      "description": "Feature name"
+                    }
+                  },
+                  "required": [
+                    "@Type",
+                    "#text"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Feature"
+            ]
+          },
+          "TimeInformation": {
+            "type": "object",
+            "description": "Hotel time information",
+            "properties": {
+              "CheckTime": {
+                "type": "object",
+                "description": "Check-in and check-out time information",
+                "properties": {
+                  "@CheckIn": {
+                    "type": "string",
+                    "description": "Check-in time"
+                  },
+                  "@CheckOut": {
+                    "type": "string",
+                    "description": "Check-out time"
+                  }
+                },
+                "required": [
+                  "@CheckIn",
+                  "@CheckOut"
+                ]
+              }
+            },
+            "required": [
+              "CheckTime"
+            ]
+          },
+          "HotelRooms": {
+            "type": "object",
+            "description": "Hotel room information",
+            "properties": {
+              "HotelRoom": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "description": "Hotel room information",
+                  "properties": {
+                    "@Code": {
+                      "type": "string",
+                      "description": "Room code"
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "Room name"
+                    },
+                    "Description": {
+                      "type": "string",
+                      "description": "Room description"
+                    }
+                  },
+                  "required": [
+                    "@Code",
+                    "Name",
+                    "Description"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "HotelRoom"
+            ]
+          }
+        },
+        "required": [
+          "@Code",
+          "@JPCode",
+          "HotelName",
+          "Zone",
+          "HotelCategory",
+          "HotelType",
+          "Address",
+          "ContactInfo",
+          "Images",
+          "Descriptions",
+          "Features",
+          "TimeInformation",
+          "HotelRooms"
+        ]
+      }
+    },
+    "required": [
+      "HotelContent"
+    ]
+  }

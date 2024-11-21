@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<JP_HotelInvNotifRQ>
+  <Hotel>
+    <HotelCode>HBE|125</HotelCode>
+    <HotelCodeEncryp>XEN2eaGo3yR13oGTBkHuLw==</HotelCodeEncryp>
+    <JPCode>JP046300</JPCode>
+    <Name>Apartamentos Allsun Pil-lari Play-a</Name>
+    <Category id = "3">3 Stars</Category>
+    <MinAge>0</MinAge>
+    <ChildrenAgeRange>
+      <AgeRange code = "ChildA" fromAge = "2" toAge = "7"/>
+      <AgeRange code = "ChildB" fromAge = "8" toAge = "17"/>
+    </ChildrenAgeRange>
+    <ShortDescription>Situated on the seafront, opposite a long stretch of sandy beach, by the seaside road of Playa de Palma. 204 studios and apartments in constant renovation with reception, bar-cafeteria, video-games, billiards and tv lounge (sateliteTV),</ShortDescription>
+    <LongDescription>Hotel "long" description.</LongDescription>
+    <Address>
+      <Address>Calle Marbella 24</Address>
+      <City id = "2">Playa De Palma</City>
+      <PostalCode>07006</PostalCode>
+      <BookingEmail>email1@ejuniper.com</BookingEmail>
+      <BookingFax>985632147</BookingFax>
+      <BookingTelephone>987456321</BookingTelephone>
+      <Coordinates>
+        <Latitude>39.564713</Latitude>
+        <Longitude>2.627979</Longitude>
+      </Coordinates>
+    </Address>
+    <RoomTypes>
+      <RoomType id = "2" min = "1" max = "1" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "255" NonRefundable = "false" childAsAdult = "true" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "0" minAdult = "1" maxAdult = "1"/>
+        <Name>Single</Name>
+      </RoomType>
+      <RoomType id = "5" min = "2" max = "2" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "255" NonRefundable = "false" childAsAdult = "false" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "0" minAdult = "2" maxAdult = "2"/>
+        <Occupancy minChild = "1" maxChild = "1" minAdult = "1" maxAdult = "1"/>
+        <Name>Double</Name>
+        <Descriptions>
+          <Description type = "GEN">DOUBLE DESCRIPTION TEST EN</Description>
+        </Descriptions>
+      </RoomType>
+      <RoomType id = "76" min = "2" max = "2" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "255" NonRefundable = "false" childAsAdult = "true" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "0" minAdult = "2" maxAdult = "2"/>
+        <Occupancy minChild = "1" maxChild = "1" minAdult = "1" maxAdult = "1"/>
+        <Name>Double RQ</Name>
+      </RoomType>
+      <RoomType id = "187" min = "1" max = "5" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "3" NonRefundable = "true" childAsAdult = "true" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "2" minAdult = "1" maxAdult = "3"/>
+        <Name>Non Refundable Room</Name>
+        <Descriptions>
+          <Description type = "GEN">Room description with test purposes</Description>
+        </Descriptions>
+      </RoomType>
+      <RoomType id = "188" min = "1" max = "5" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "255" NonRefundable = "false" childAsAdult = "true" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "2" minAdult = "1" maxAdult = "3"/>
+        <Name>Triple</Name>
+      </RoomType>
+      <RoomType id = "215" min = "4" max = "15" alter = "0" roomTypeCategoryID = "4" roomTypeCategoryName = "Standard" addiFrom = "255" NonRefundable = "false" childAsAdult = "true" infantAsChild = "false" MinAge = "0">
+        <Occupancy minChild = "0" maxChild = "10" minAdult = "4" maxAdult = "10"/>
+        <Name>Family Room</Name>
+      </RoomType>
+    </RoomTypes>
+    <BoardTypes>
+      <BoardType id = "2">Bed &amp; Breakfast</BoardType>
+      <BoardType id = "1">Half Board</BoardType>
+      <BoardType id = "3">Room Only</BoardType>
+      <BoardType id = "5">All Inclusive</BoardType>
+    </BoardTypes>
+    <DirectPaymentCardTypes/>
+    <Features>
+      <Feature type = "Hotel" payment = "false">Pool</Feature>
+      <Feature type = "Hotel" payment = "false">WIFI</Feature>
+      <Feature type = "Room" payment = "false">Hair dryer</Feature>
+      <Feature type = "Room" payment = "false">Safe</Feature>
+      <Feature type = "Restaurant" payment = "false">Restaurant</Feature>
+      <Feature type = "AdditionalInfo" payment = "false">Aditional Info Test</Feature>
+    </Features>
+    <Images>
+      <Image>
+        <FileName>/hotels/APARTAMENTOS_ALLSUN_PIL-LARI_PLAYA.jpg</FileName>
+      </Image>
+    </Images>
+    <TimeZone>(UTC+05:00) Ekaterinburg</TimeZone>
+  </Hotel>
+</JP_HotelInvNotifRQ>
