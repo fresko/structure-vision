@@ -280,7 +280,8 @@ if uploaded_file:
         tab2.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
         tab2.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
-        if tab2.button("Iniciar Interpretación"):
+        btn_agente = tab2.button("Iniciar Interpretación"):
+        if btn_agente:
             tab2.write("Interpretación iniciada...")
 
     # Formulario con cuatro campos y un botón de envío
@@ -288,15 +289,15 @@ if uploaded_file:
 
         # Cargar el contenido del archivo JSON
         json_data = load_json('json/json_test.json')   
+        if btn_agente:
+            form = tab2.form(key='approval_form')
+            for key, value in json_data.items():
+                form.text_input(label=key, value=value)            
 
-        form = tab2.form(key='approval_form')
-        for key, value in json_data.items():
-            form.text_input(label=key, value=value)            
+            # Botón de envío    
+            submit_button = form.form_submit_button(label='Enviar')
 
-          # Botón de envío    
-        submit_button = form.form_submit_button(label='Enviar')
-
-        if submit_button:
+            if submit_button:
                 tab2.success("Formulario enviado con éxito!") 
 
 
