@@ -280,7 +280,7 @@ if uploaded_file:
         tab2.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
         tab2.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
-        btn_agente = tab2.button("Iniciar Interpretación"):
+        btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
             tab2.write("Interpretación iniciada...")
 
