@@ -288,7 +288,7 @@ if uploaded_file:
         with col3:
 
         # Cargar el contenido del archivo JSON
-            json_data = load_json('json/json_test.json') 
+            json_data = load_json('json/json_test2.json') 
             if btn_agente:
                 form = tab2.form(key='approval_form')
                 for key, value in json_data.items():

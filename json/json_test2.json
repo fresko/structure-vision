@@ -1,0 +1,167 @@
+{
+    "HotelCode": "HBE|125",
+    "HotelCodeEncryp": "XEN2eaGo3yR13oGTBkHuLw==",
+    "JPCode": "JP046300",
+    "Name": "Apartamentos Allsun Pil-lari Play-a",
+    "Category": {"id": "3", "text": "3 Stars"},
+    "MinAge": "0",
+    "ChildrenAgeRange": [
+      {"code": "ChildA", "fromAge": "2", "toAge": "7" },
+      {"code": "ChildB", "fromAge": "8", "toAge": "17"}
+    ],
+    "ShortDescription": "Situated on the seafront, opposite a long stretch of sandy beach, by the seaside road of Playa de Palma. 204 studios and apartments in constant renovation with reception, bar-cafeteria, video-games, billiards and tv lounge (sateliteTV),",
+    "LongDescription": "Hotel \"long\" description.",
+    "Address": {
+      "Address": "Calle Marbella 24",
+      "City": {"id": "2", "text": "Playa De Palma"},
+      "PostalCode": "07006",
+      "BookingEmail": "email1@ejuniper.com",
+      "BookingFax": "985632147",
+      "BookingTelephone": "987456321",
+      "Coordinates": {"Latitude": "39.564713", "Longitude": "2.627979"}
+    },
+    "RoomTypes": [
+      {
+        "id": "2",
+        "min": "1",
+        "max": "1",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "255",
+        "NonRefundable": "false",
+        "childAsAdult": "true",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": {
+          "minChild": "0",
+          "maxChild": "0",
+          "minAdult": "1",
+          "maxAdult": "1"
+        },
+        "Name": "Single"
+      },
+      {
+        "id": "5",
+        "min": "2",
+        "max": "2",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "255",
+        "NonRefundable": "false",
+        "childAsAdult": "false",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": [
+          {"minChild": "0", "maxChild": "0", "minAdult": "2", "maxAdult": "2"},
+          {"minChild": "1", "maxChild": "1", "minAdult": "1", "maxAdult": "1"}
+        ],
+        "Name": "Double",
+        "Descriptions": [ {"type": "GEN", "text": "DOUBLE DESCRIPTION TEST EN"} ]
+      },
+      {
+        "id": "76",
+        "min": "2",
+        "max": "2",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "255",
+        "NonRefundable": "false",
+        "childAsAdult": "true",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": [
+          {"minChild": "0", "maxChild": "0", "minAdult": "2", "maxAdult": "2"},
+          {"minChild": "1", "maxChild": "1", "minAdult": "1", "maxAdult": "1"}
+        ],
+        "Name": "Double RQ"
+      },
+      {
+        "id": "187",
+        "min": "1",
+        "max": "5",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "3",
+        "NonRefundable": "true",
+        "childAsAdult": "true",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": {
+          "minChild": "0",
+          "maxChild": "2",
+          "minAdult": "1",
+          "maxAdult": "3"
+        },
+        "Name": "Non Refundable Room",
+        "Descriptions": [
+          {"type": "GEN", "text": "Room description with test purposes"}
+        ]
+      },
+      {
+        "id": "188",
+        "min": "1",
+        "max": "5",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "255",
+        "NonRefundable": "false",
+        "childAsAdult": "true",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": {
+          "minChild": "0",
+          "maxChild": "2",
+          "minAdult": "1",
+          "maxAdult": "3"
+        },
+        "Name": "Triple"
+      },
+      {
+        "id": "215",
+        "min": "4",
+        "max": "15",
+        "alter": "0",
+        "roomTypeCategoryID": "4",
+        "roomTypeCategoryName": "Standard",
+        "addiFrom": "255",
+        "NonRefundable": "false",
+        "childAsAdult": "true",
+        "infantAsChild": "false",
+        "MinAge": "0",
+        "Occupancy": {
+          "minChild": "0" ,
+          "maxChild": "10",
+          "minAdult": "4" ,
+          "maxAdult": "10"
+        },
+        "Name": "Family Room"
+      }
+    ],
+    "BoardTypes": [
+      {"id": "2", "text": "Bed & Breakfast"},
+      {"id": "1", "text": "Half Board"     },
+      {"id": "3", "text": "Room Only"      },
+      {"id": "5", "text": "All Inclusive"  }
+    ],
+    "DirectPaymentCardTypes": [],
+    "Features": [
+      {"type": "Hotel", "payment": "false", "text": "Pool"},
+      {"type": "Hotel", "payment": "false", "text": "WIFI"},
+      {"type": "Room", "payment": "false", "text": "Hair dryer"},
+      {"type": "Room", "payment": "false", "text": "Safe"},
+      {"type": "Restaurant", "payment": "false", "text": "Restaurant"},
+      {
+        "type"   : "AdditionalInfo"     ,
+        "payment": "false"              ,
+        "text"   : "Aditional Info Test"
+      }
+    ],
+    "Images": [ {"FileName": "/hotels/APARTAMENTOS_ALLSUN_PIL-LARI_PLAYA.jpg"} ],
+    "TimeZone": "(UTC+05:00) Ekaterinburg"
+  }
+  
