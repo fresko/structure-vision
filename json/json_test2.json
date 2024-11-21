@@ -1,167 +1,129 @@
 {
-    "HotelCode": "HBE|125",
-    "HotelCodeEncryp": "XEN2eaGo3yR13oGTBkHuLw==",
-    "JPCode": "JP046300",
-    "Name": "Apartamentos Allsun Pil-lari Play-a",
-    "Category": {"id": "3", "text": "3 Stars"},
-    "MinAge": "0",
-    "ChildrenAgeRange": [
-      {"code": "ChildA", "fromAge": "2", "toAge": "7" },
-      {"code": "ChildB", "fromAge": "8", "toAge": "17"}
-    ],
-    "ShortDescription": "Situated on the seafront, opposite a long stretch of sandy beach, by the seaside road of Playa de Palma. 204 studios and apartments in constant renovation with reception, bar-cafeteria, video-games, billiards and tv lounge (sateliteTV),",
-    "LongDescription": "Hotel \"long\" description.",
-    "Address": {
-      "Address": "Calle Marbella 24",
-      "City": {"id": "2", "text": "Playa De Palma"},
-      "PostalCode": "07006",
-      "BookingEmail": "email1@ejuniper.com",
-      "BookingFax": "985632147",
-      "BookingTelephone": "987456321",
-      "Coordinates": {"Latitude": "39.564713", "Longitude": "2.627979"}
+  "Hotel": {
+    "Name": "InterContinental Miami",
+    "Address": "100 Chopin Plaza, Miami FL 33131",
+    "Phone": "305-577-1000",
+    "Email": "productohoteles@seeusatours.com",
+    "Website": "www.icmiamihotel.com"
+  },
+  "TourOperator": {
+    "Name": "See USA Tours",
+    "Address": "1220 Broadway Suite 1108, NY, NY 10001",
+    "Phone": "212-944-0906 Ext 252",
+    "Contact": "Peio Cuevas",
+    "Email": "Peio.cuevas@seeusatours.com",
+    "Cell": "917-942-9279"
+  },
+  "Agreement": {
+    "Date": "June 19th 2023",
+    "Type": "2024 Net Rate Agreement"
+  },
+  "Rates": {
+    "Currency": "USD",
+    "CityPartialBayView": {
+      "Dec282023-Mar312024": {
+        "Sun-Wed": "329.00",
+        "Thu-Sat": "349.00"
+      },
+      "Apr1-May312024": {
+        "Sun-Wed": "269.00",
+        "Thu-Sat": "289.00"
+      },
+      "Jun1-Sep302024": {
+        "Sun-Wed": "199.00",
+        "Thu-Sat": "219.00"
+      },
+      "Oct1-Dec272024": {
+        "Sun-Wed": "229.00",
+        "Thu-Sat": "249.00"
+      }
     },
-    "RoomTypes": [
-      {
-        "id": "2",
-        "min": "1",
-        "max": "1",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "255",
-        "NonRefundable": "false",
-        "childAsAdult": "true",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": {
-          "minChild": "0",
-          "maxChild": "0",
-          "minAdult": "1",
-          "maxAdult": "1"
-        },
-        "Name": "Single"
+    "SkylineView": {
+      "Dec282023-Mar312024": {
+        "Sun-Wed": "344.00",
+        "Thu-Sat": "364.00"
       },
-      {
-        "id": "5",
-        "min": "2",
-        "max": "2",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "255",
-        "NonRefundable": "false",
-        "childAsAdult": "false",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": [
-          {"minChild": "0", "maxChild": "0", "minAdult": "2", "maxAdult": "2"},
-          {"minChild": "1", "maxChild": "1", "minAdult": "1", "maxAdult": "1"}
-        ],
-        "Name": "Double",
-        "Descriptions": [ {"type": "GEN", "text": "DOUBLE DESCRIPTION TEST EN"} ]
+      "Apr1-May312024": {
+        "Sun-Wed": "284.00",
+        "Thu-Sat": "304.00"
       },
-      {
-        "id": "76",
-        "min": "2",
-        "max": "2",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "255",
-        "NonRefundable": "false",
-        "childAsAdult": "true",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": [
-          {"minChild": "0", "maxChild": "0", "minAdult": "2", "maxAdult": "2"},
-          {"minChild": "1", "maxChild": "1", "minAdult": "1", "maxAdult": "1"}
-        ],
-        "Name": "Double RQ"
+      "Jun1-Sep302024": {
+        "Sun-Wed": "214.00",
+        "Thu-Sat": "234.00"
       },
-      {
-        "id": "187",
-        "min": "1",
-        "max": "5",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "3",
-        "NonRefundable": "true",
-        "childAsAdult": "true",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": {
-          "minChild": "0",
-          "maxChild": "2",
-          "minAdult": "1",
-          "maxAdult": "3"
-        },
-        "Name": "Non Refundable Room",
-        "Descriptions": [
-          {"type": "GEN", "text": "Room description with test purposes"}
-        ]
-      },
-      {
-        "id": "188",
-        "min": "1",
-        "max": "5",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "255",
-        "NonRefundable": "false",
-        "childAsAdult": "true",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": {
-          "minChild": "0",
-          "maxChild": "2",
-          "minAdult": "1",
-          "maxAdult": "3"
-        },
-        "Name": "Triple"
-      },
-      {
-        "id": "215",
-        "min": "4",
-        "max": "15",
-        "alter": "0",
-        "roomTypeCategoryID": "4",
-        "roomTypeCategoryName": "Standard",
-        "addiFrom": "255",
-        "NonRefundable": "false",
-        "childAsAdult": "true",
-        "infantAsChild": "false",
-        "MinAge": "0",
-        "Occupancy": {
-          "minChild": "0" ,
-          "maxChild": "10",
-          "minAdult": "4" ,
-          "maxAdult": "10"
-        },
-        "Name": "Family Room"
+      "Oct1-Dec272024": {
+        "Sun-Wed": "244.00",
+        "Thu-Sat": "264.00"
       }
-    ],
-    "BoardTypes": [
-      {"id": "2", "text": "Bed & Breakfast"},
-      {"id": "1", "text": "Half Board"     },
-      {"id": "3", "text": "Room Only"      },
-      {"id": "5", "text": "All Inclusive"  }
-    ],
-    "DirectPaymentCardTypes": [],
-    "Features": [
-      {"type": "Hotel", "payment": "false", "text": "Pool"},
-      {"type": "Hotel", "payment": "false", "text": "WIFI"},
-      {"type": "Room", "payment": "false", "text": "Hair dryer"},
-      {"type": "Room", "payment": "false", "text": "Safe"},
-      {"type": "Restaurant", "payment": "false", "text": "Restaurant"},
-      {
-        "type"   : "AdditionalInfo"     ,
-        "payment": "false"              ,
-        "text"   : "Aditional Info Test"
+    },
+    "BayView": {
+      "Dec282023-Mar312024": {
+        "Sun-Wed": "364.00",
+        "Thu-Sat": "374.00"
+      },
+      "Apr1-May312024": {
+        "Sun-Wed": "304.00",
+        "Thu-Sat": "324.00"
+      },
+      "Jun1-Sep302024": {
+        "Sun-Wed": "224.00",
+        "Thu-Sat": "254.00"
+      },
+      "Oct1-Dec272024": {
+        "Sun-Wed": "264.00",
+        "Thu-Sat": "284.00"
       }
-    ],
-    "Images": [ {"FileName": "/hotels/APARTAMENTOS_ALLSUN_PIL-LARI_PLAYA.jpg"} ],
-    "TimeZone": "(UTC+05:00) Ekaterinburg"
+    },
+    "OceanView": {
+      "Dec282023-Mar312024": {
+        "Sun-Wed": "389.00",
+        "Thu-Sat": "399.00"
+      },
+      "Apr1-May312024": {
+        "Sun-Wed": "329.00",
+        "Thu-Sat": "349.00"
+      },
+      "Jun1-Sep302024": {
+        "Sun-Wed": "249.00",
+        "Thu-Sat": "279.00"
+      },
+      "Oct1-Dec272024": {
+        "Sun-Wed": "289.00",
+        "Thu-Sat": "309.00"
+      }
+    }
+  },
+  "Taxes": {
+    "Rate": "13%",
+    "Note": "13% tax will be added to the above room rates (taxes are subject to change without notice). Vouchers must cover tax in addition to room rates listed."
+  },
+  "Supplement": {
+    "TripleQuad": "20.00 per person per night"
+  },
+  "Policies": {
+    "HotelServiceFee": "30.00 per room, per night",
+    "Breakfast": "43.00 all-inclusive per person per day",
+    "MinimumAge": "21 years",
+    "ChildPolicy": "Children 17 years of age or younger stay free with authorized paying adult",
+    "Occupancy": "Maximum occupancy is 2 adults and 2 children (17 years of age or younger) or 4 adults per room",
+    "CutOff": "3 Days prior to arrival",
+    "Allotment": "Free sell",
+    "Parking": "50.00 per day per car",
+    "CheckIn": "3:00PM",
+    "CheckOut": "12:00PM",
+    "Payment": "Reservations must be prepaid in full 5 days prior to guest's arrival",
+    "Cancellation": "Individual reservations may be canceled outside of 72 hours prior to arrival date unless otherwise noted.",
+    "EarlyCheckOut": "Individual guests requesting to depart hotel early will forfeit an additional one (1) night room and tax.",
+    "NoShow": "Individuals who do not arrive and do not cancel the reservation will be considered a \"No-Show.\" A penalty equal to one (1) night room and tax will be charged to the operator."
+  },
+  "BlackoutDates": {
+    "December2023": "31",
+    "January2024": "15, 16, 17, 18 + 26, 27, 28, 29",
+    "February2024": "15, 16, 17",
+    "March2024": "21, 22, 23, 24",
+    "April2024": "7, 8, 9",
+    "May2024": "14, 15, 16",
+    "June2024": "27, 28",
+    "December2024": "6, 7"
   }
-  
+}

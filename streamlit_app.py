@@ -356,12 +356,12 @@ if uploaded_file:
                     else:
                         form_data[key] = tab2.text_input(key, value=str(value))
         
-                # Botón de envío
-                submit_button = st.form_submit_button(label='Enviar')
-                
-                if submit_button:
-                    st.success("Formulario enviado exitosamente!")
-                    st.json(form_data)
+                               
+                 # Botón de envío    
+                submit_button = form.form_submit_button(label='Enviar')
+
+                #if submit_button:
+                 #   tab2.success("Formulario enviado con éxito!") 
 
 
 
