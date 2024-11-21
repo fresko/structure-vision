@@ -358,7 +358,7 @@ if uploaded_file:
         
                                
                  # Botón de envío    
-                submit_button = form.form_submit_button(label='Enviar')
+                submit_button = tab2.form_submit_button(label='Enviar')
 
                 #if submit_button:
                  #   tab2.success("Formulario enviado con éxito!") 
