@@ -289,42 +289,12 @@ if uploaded_file:
         # Cargar el contenido del archivo JSON
         json_data = load_json('json/contrato_v1.json')   
 
-        # Extraer los datos del JSON
-        features = json_data['Features']['Feature']
-        hotel_category = json_data['HotelCategory']['#text']
-        hotel_name = json_data['HotelName']
-        hotel_rooms = json_data['HotelRooms']['HotelRoom']
-
-        tab2.text_area(features)
-        tab2.text_area( hotel_category)
-
-         # Título del formulario
-            
-        tab2.header("Formulario de Aprobación")
-        # Mostrar el nombre del hotel
-        tab2.header("🏨 Nombre del Hotel")
-        tab2.text(hotel_name)
-
-            # Mostrar la categoría del hotel
-        tab2.header("Categoría del Hotel")
-        tab2.text(hotel_category)
-
-            # Mostrar las características del hotel
-        tab2.header("Características del Hotel")
-        for feature in features:
-            tab2.text(f"{feature['#text']} ({feature['@Type']})")
-
-            # Mostrar las habitaciones del hotel
-            tab2.header("Habitaciones del Hotel")
-        for room in hotel_rooms:
-                tab2.subheader(f"Habitación {room['@Type']}")
-                tab2.text(f"Descripción: {room['Description']}")
-                tab2.text(f"Capacidad: {room['Capacity']}")
-                tab2.text(f"Precio: {room['Price']}")      
-
+        form = tab2.form(key='approval_form')
+        for key, value in json_data.items():
+            form.text_input(label=key, value=value)            
 
           # Botón de envío    
-        submit_button = tab2.button(label='Enviar')
+        submit_button = form.form_submit_button(label='Enviar')
 
         if submit_button:
                 tab2.success("Formulario enviado con éxito!") 
