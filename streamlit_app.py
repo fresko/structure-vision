@@ -295,6 +295,9 @@ if uploaded_file:
         hotel_name = json_data['HotelName']
         hotel_rooms = json_data['HotelRooms']['HotelRoom']
 
+        print(features)
+        print( hotel_category)
+
          # Título del formulario
             
         tab2.header("Formulario de Aprobación")
