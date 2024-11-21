@@ -6,6 +6,9 @@ from streamlit_pdf_viewer import pdf_viewer
 import json  # Importar el módulo json
 dotenv.load_dotenv(override=True)
 import streamlit as st
+from flatten_json import flatten # type: ignore
+
+
 
 # Manejo de Sessiones
 if 'doc_id' not in st.session_state:
@@ -99,8 +102,45 @@ def new_file():
 def load_json(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
+    
+# Función para aplanar y limpiar datos JSON
+def flatten_json_data(json_data):
+    # Aplanar JSON anidado a estructura simple
+    flat_json = flatten(json_data)
+    # Filtrar y limpiar claves
+    cleaned_data = {}
+    for key, value in flat_json.items():
+        # Convertir listas y diccionarios a string
+        if isinstance(value, (list, dict)):
+            value = str(value)
+        # Limpiar nombres de campos
+        clean_key = key.replace('_', ' ').title()
+        cleaned_data[clean_key] = value
+    return cleaned_data
 
-
+def create_dynamic_form(json_data):
+    st.title("Formulario Dinámico")
+    
+    # Crear formulario
+    with st.form(key='dynamic_form'):
+        form_data = {}
+        
+        # Crear campos de formulario dinámicamente
+        for key, value in json_data.items():
+            # Determinar el tipo de campo según el valor
+            if isinstance(value, bool):
+                form_data[key] = st.checkbox(key, value=value)
+            elif isinstance(value, (int, float)):
+                form_data[key] = st.number_input(key, value=value)
+            else:
+                form_data[key] = st.text_input(key, value=str(value))
+        
+        # Botón de envío
+        submit_button = st.form_submit_button(label='Enviar')
+        
+        if submit_button:
+            st.success("Formulario enviado exitosamente!")
+            st.json(form_data)
 
 # Configuración de la barra lateral
 with st.sidebar:
@@ -289,16 +329,41 @@ if uploaded_file:
 
         # Cargar el contenido del archivo JSON
             json_data = load_json('json/json_test2.json') 
-            if btn_agente:
-                form = tab2.form(key='approval_form')
-                for key, value in json_data.items():
-                    form.text_input(label=key, value=value)            
+            flat_data = flatten_json_data(json_data)
+            #create_dynamic_form(flat_data)
+            #if btn_agente:
+             #   form = tab2.form(key='approval_form')
+              #     form.text_input(label=key, value=value)            
 
                 # Botón de envío    
-                submit_button = form.form_submit_button(label='Enviar')
+               # submit_button = form.form_submit_button(label='Enviar')
 
+                #if submit_button:
+                 #   tab2.success("Formulario enviado con éxito!") 
+
+            if btn_agente:
+                     # Crear formulario
+                tab2.form(key='dynamic_form')
+                form_data = {}
+        
+                # Crear campos de formulario dinámicamente
+                for key, value in json_data.items():
+                    # Determinar el tipo de campo según el valor
+                    if isinstance(value, bool):
+                        form_data[key] = tab2.checkbox(key, value=value)
+                    elif isinstance(value, (int, float)):
+                        form_data[key] = tab2.number_input(key, value=value)
+                    else:
+                        form_data[key] = tab2.text_input(key, value=str(value))
+        
+                # Botón de envío
+                submit_button = st.form_submit_button(label='Enviar')
+                
                 if submit_button:
-                    tab2.success("Formulario enviado con éxito!") 
+                    st.success("Formulario enviado exitosamente!")
+                    st.json(form_data)
+
+
 
 
 
