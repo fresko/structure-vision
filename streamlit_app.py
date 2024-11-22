@@ -7,6 +7,7 @@ import json  # Importar el módulo json
 dotenv.load_dotenv(override=True)
 import streamlit as st
 from flatten_json import flatten # type: ignore
+import tempfile
 
 import google.generativeai as genai
 from PyPDF2 import PdfReader
@@ -181,7 +182,7 @@ def wait_for_files_active(files):
   print("...all files ready")
   print()
 
-def crete_prompt(upfile):
+def crete_prompt(up_pathtmp):
     prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
     # Create the model
     generation_config = {
@@ -200,20 +201,20 @@ def crete_prompt(upfile):
 
     # TODO Make these files available on the local file system
     # You may need to update the file paths
-    ##files = [
-    #upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
-    ##upload_to_gemini(path_file, mime_type="application/pdf"),
-    #]
+    files = [
+    ##upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
+    upload_to_gemini(up_pathtmp, mime_type="application/pdf"),
+    ]
 
     # Some files have a processing delay. Wait for them to be ready.
-    wait_for_files_active(upfile)
+    wait_for_files_active(files)
 
     chat_session = model.start_chat(
     history=[
         {
         "role": "user",
         "parts": [
-            upfile[0],
+            files[0],
             prompt_jsonsimple,
         ],
         },
@@ -416,7 +417,14 @@ if uploaded_file:
 
         if btn_agente:
             tab2.write("Interpretación iniciada...")
-            resonpse_llm = crete_prompt(uploaded_file)
+
+            temp_dir = tempfile.mkdtemp()
+            pathtmp = os.pathtmp.join(temp_dir, uploaded_file.name)
+            with open(pathtmp, "wb") as f:
+                f.write(uploaded_file.getvalue())
+
+
+            resonpse_llm = crete_prompt(pathtmp)
 
             tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
