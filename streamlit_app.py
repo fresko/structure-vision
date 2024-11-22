@@ -418,13 +418,17 @@ if uploaded_file:
         if btn_agente:
             tab2.write("Interpretación iniciada...")
 
-            temp_dir = tempfile.mkdtemp()
-            pathtmp = os.path.join(temp_dir, uploaded_file.name)
-            with open(pathtmp, "wb") as f:
-                f.write(uploaded_file.getvalue())
+            #temp_dir = tempfile.mkdtemp()
+            #pathtmp = os.path.join(temp_dir,uploaded_file.name)
+            #with open(pathtmp, "wb") as f:
+             #   f.write(uploaded_file.getvalue())
+
+            with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+                tmp_file.write(uploaded_file.getvalue())
+                file_path = tmp_file.name    
 
 
-            resonpse_llm = crete_prompt(pathtmp)
+            resonpse_llm = crete_prompt(file_path)
 
             tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
