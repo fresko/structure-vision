@@ -442,10 +442,12 @@ if uploaded_file:
             #file_content = uploaded_file.read()  # Get the file content as bytes           
 
             response_llm = crete_prompt(file_path)
-            json_data = text_to_json(response_llm.text)
-            flat_data = flatten_json_data(json_data)
+            tab2.subheader("Visualizador de JSON")
+            tab2.json(response_llm.text)
+            #json_data = text_to_json(response_llm.text)
+            #flat_data = flatten_json_data(json_data)
 
-            tab2.write("JSON : " + flat_data.text)
+            #tab2.write("JSON : " + flat_data.text)
 
             # Define the file name and path
             #file_name = "contrato_test4.json"
