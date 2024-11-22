@@ -136,29 +136,29 @@ def flatten_json_data(json_data):
         cleaned_data[clean_key] = value
     return cleaned_data
 
-def create_dynamic_form(json_data):
+def create_dynamic_form(json_data,tab):
     st.title("Formulario Dinámico")
     
     # Crear formulario
-    st.form(key='dynamic_form')
-    form_data = {}
-        
-    # Crear campos de formulario dinámicamente
-    for key, value in json_data.items():
-        # Determinar el tipo de campo según el valor
-        if isinstance(value, bool):
-            form_data[key] = st.checkbox(key, value=value)
-        elif isinstance(value, (int, float)):
-            form_data[key] = st.number_input(key, value=value)
-        else:
-            form_data[key] = st.text_input(key, value=str(value))
-        
+    with tab.form(key='dynamic_form'):
+        form_data = {}
+            
+        # Crear campos de formulario dinámicamente
+        for key, value in json_data.items():
+            # Determinar el tipo de campo según el valor
+            if isinstance(value, bool):
+                form_data[key] = tab.checkbox(key, value=value)
+            elif isinstance(value, (int, float)):
+                form_data[key] = tab.number_input(key, value=value)
+            else:
+                form_data[key] = tab.text_input(key, value=str(value))
+            
         # Botón de envío
-        submit_button = st.form_submit_button(label='Enviar')
-        
-    if submit_button:
-        st.success("Formulario enviado exitosamente!")
-        st.json(form_data)
+        submit_button = tab.form_submit_button(label='Enviar')
+            
+        if submit_button:
+            tab.success("Formulario enviado exitosamente!")
+            #st.json(form_data)
 #-------------------------------
 
 def upload_to_gemini(path, mime_type=None):
@@ -474,7 +474,7 @@ if uploaded_file:
                  #   tab2.success("Formulario enviado con éxito!") 
 
             if btn_agente:
-                create_dynamic_form(json_data)
+                create_dynamic_form(json_data,tab2)
                 tab2.json(json_data)
                      # Crear formulario
                 
