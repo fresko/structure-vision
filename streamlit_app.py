@@ -137,27 +137,27 @@ def flatten_json_data(json_data):
     return cleaned_data
 
 def create_dynamic_form(json_data, tab):
-    tab.title("Formulario Dinámico")
+        tab.title("Formulario Dinámico")
     
     # Crear formulario
-    with tab.form(key='dynamic_form'):
+        form_approve = tab.form(key='dynamic_form')
         form_data = {}
         
         # Crear campos de formulario dinámicamente
         for key, value in json_data.items():
             # Determinar el tipo de campo según el valor
             if isinstance(value, bool):
-                form_data[key] = tab.checkbox(key, value=value)
+                form_data[key] = form_approve.checkbox(key, value=value)
             elif isinstance(value, (int, float)):
-                form_data[key] = tab.number_input(key, value=value)
+                form_data[key] = form_approve.number_input(key, value=value)
             else:
-                form_data[key] = tab.text_input(key, value=str(value))
+                form_data[key] = form_approve.text_input(key, value=str(value))
         
         # Botón de envío
-    submit_button = st.form_submit_button(label='Enviar')
+        submit_button = form_approve.form_submit_button(label='Enviar')
         
-    if submit_button:
-        tab.success("Formulario enviado exitosamente!")
+        if submit_button:
+            tab.success("Formulario enviado exitosamente!")
             #st.json(form_data)
 #-------------------------------
 
