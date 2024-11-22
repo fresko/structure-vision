@@ -205,7 +205,7 @@ def crete_prompt(file_content):
     ##upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
     #upload_to_gemini(up_pathtmp, mime_type="application/pdf"),
     #]
-    files = genai.upload_file(file_content, mime_type=uploaded_file.type, display_name=uploaded_file.name)
+    files = genai.upload_file(file_content, mime_type="application/pdf")
     print(f"Uploaded file '{files.display_name}' as: {files.uri}")
 
     # Some files have a processing delay. Wait for them to be ready.
