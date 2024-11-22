@@ -433,7 +433,9 @@ if uploaded_file:
 
             resonpse_llm = crete_prompt(file_path)
 
-            tab2.write("JSON : " + resonpse_llm.text)
+            flat_data = flatten_json_data(resonpse_llm.text)
+
+            tab2.write("JSON : " + flat_data)
 
             # Define the file name and path
             #file_name = "contrato_test4.json"
