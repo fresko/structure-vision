@@ -6,7 +6,7 @@ from streamlit_pdf_viewer import pdf_viewer
 import json  # Importar el módulo json
 dotenv.load_dotenv(override=True)
 import streamlit as st
-from flatten_json import flatten # type: ignore
+from flatten_json import flatten 
 import tempfile
 
 import google.generativeai as genai
@@ -183,7 +183,7 @@ def wait_for_files_active(files):
   print()
 
 def crete_prompt(file_content):
-    prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
+    prompt = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
     # Create the model
     generation_config = {
     "temperature": 1,
@@ -217,7 +217,7 @@ def crete_prompt(file_content):
         "role": "user",
         "parts": [
             files[0],
-            "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto",
+            prompt,
         ],
         },
     ]
