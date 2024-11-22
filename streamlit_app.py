@@ -462,7 +462,7 @@ if uploaded_file:
                 form_data = {}
         
                 # Crear campos de formulario dinámicamente
-                for key, value in flat_data.items():
+                for key, value in form.items():
                     
                     # Determinar el tipo de campo según el valor
                     if isinstance(value, bool):
