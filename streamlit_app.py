@@ -419,7 +419,7 @@ if uploaded_file:
             tab2.write("Interpretación iniciada...")
 
             temp_dir = tempfile.mkdtemp()
-            pathtmp = os.pathtmp.join(temp_dir, uploaded_file.name)
+            pathtmp = os.path.join(temp_dir, uploaded_file.name)
             with open(pathtmp, "wb") as f:
                 f.write(uploaded_file.getvalue())
 
