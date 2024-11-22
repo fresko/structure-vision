@@ -154,10 +154,10 @@ def create_dynamic_form(json_data, tab):
                 form_data[key] = tab.text_input(key, value=str(value))
         
         # Botón de envío
-        submit_button = tab.form_submit_button(label='Enviar')
+    submit_button = tab.form_submit_button(label='Enviar')
         
-        if submit_button:
-            tab.success("Formulario enviado exitosamente!")
+    if submit_button:
+        tab.success("Formulario enviado exitosamente!")
             #st.json(form_data)
 #-------------------------------
 
@@ -450,7 +450,7 @@ if uploaded_file:
 
             # Mostrar el JSON en un expander
             with tab2.expander("Ver JSON", expanded=False):
-                tab2.json(json_str)
+                tab2.json(json_data)
 
             #flat_data = flatten_json_data(json_data)
 
