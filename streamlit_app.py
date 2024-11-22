@@ -153,8 +153,8 @@ def create_dynamic_form(json_data,tab):
             else:
                 form_data[key] = tab.text_input(key, value=str(value))
             
-        # Botón de envío
-        submit_button = tab.form_submit_button(label='Enviar')
+            # Botón de envío
+            submit_button = tab.form_submit_button(label='Enviar')
             
         if submit_button:
             tab.success("Formulario enviado exitosamente!")
