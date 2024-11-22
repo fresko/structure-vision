@@ -410,28 +410,30 @@ if uploaded_file:
         genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
-        tab2.write("Cargue el archivo PDF para iniciar la interpretación." + uploaded_file.name)
-        #myfile = genai.get_file(uploaded_file.name)
         
+        #myfile = genai.get_file(uploaded_file.name)       
 
         btn_agente = tab2.button("Iniciar Interpretación")
+
         if btn_agente:
             tab2.write("Interpretación iniciada...")
             resonpse_llm = crete_prompt(uploaded_file)
 
-            # Define the file name and path
-            file_name = "contrato_test4.json"
-            file_path = "/json/" + file_name
+            tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
-            with open(file_path, "w") as file:
-             file.write(resonpse_llm.text)
+            # Define the file name and path
+            #file_name = "contrato_test4.json"
+            #file_path = "/json/" + file_name
+
+            #with open(file_path, "w") as file:
+             #file.write(resonpse_llm.text)
 
     # Formulario con cuatro campos y un botón de envío
         with col3:
 
         # Cargar el contenido del archivo JSON
-            json_data = load_json('/json/contrato_test4.json') 
-            flat_data = flatten_json_data(json_data)
+            #json_data = load_json('/json/contrato_test4.json') 
+            #flat_data = flatten_json_data(json_data)
             #create_dynamic_form(flat_data)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
