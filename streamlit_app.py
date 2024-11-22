@@ -206,15 +206,14 @@ def crete_prompt(upfile):
     #]
 
     # Some files have a processing delay. Wait for them to be ready.
-    ##wait_for_files_active(files)
+    wait_for_files_active(upfile)
 
     chat_session = model.start_chat(
     history=[
         {
         "role": "user",
         "parts": [
-            #files[0],
-            upfile,
+            upfile[0],
             prompt_jsonsimple,
         ],
         },
