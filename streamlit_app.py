@@ -424,7 +424,7 @@ if uploaded_file:
             file_path = "/js/" + file_name
 
             with open(file_path, "w") as file:
-               myfilellm= file.write(resonpse_llm)
+               myfilellm = file.write(resonpse_llm.text)
 
     # Formulario con cuatro campos y un botón de envío
         with col3:
