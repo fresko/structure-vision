@@ -318,7 +318,7 @@ if uploaded_file:
     with col2:
         tab2.subheader("AGENT IA - Utiliza el agente para Interpretar tu PDF")
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
-        tab2.image("https://giphy.com/media/0lGd2OXXHe4tFhb7Wh/giphy.gif", caption="AI en acción")
+        tab2.image("https://i.giphy.com/0lGd2OXXHe4tFhb7Wh.webp", caption="AI en acción")
         GOOGLE_API_KEY = tab2.text_input('GOOGLE_API_KEY', type='password')
         os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
         genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
