@@ -137,7 +137,7 @@ def flatten_json_data(json_data):
     return cleaned_data
 
 def create_dynamic_form(json_data, tab):
-    st.title("Formulario Dinámico")
+    tab.title("Formulario Dinámico")
     
     # Crear formulario
     with tab.form(key='dynamic_form'):
