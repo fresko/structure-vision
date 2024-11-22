@@ -421,7 +421,7 @@ if uploaded_file:
 
             # Define the file name and path
             file_name = "contrato_test4.json"
-            file_path = "/js/" + file_name
+            file_path = "json/" + file_name
 
             with open(file_path, "w") as file:
              file.write(resonpse_llm.text)
@@ -449,7 +449,7 @@ if uploaded_file:
                 form_data = {}
         
                 # Crear campos de formulario dinámicamente
-                for key, value in resonpse_llm.items():
+                for key, value in flat_data.items():
                     
                     # Determinar el tipo de campo según el valor
                     if isinstance(value, bool):
