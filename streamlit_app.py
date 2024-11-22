@@ -462,7 +462,7 @@ if uploaded_file:
         # Cargar el contenido del archivo JSON
             #json_data = load_json('/json/contrato_test4.json') 
             #flat_data = flatten_json_data(json_data)
-            #create_dynamic_form(flat_data)
+            create_dynamic_form(response_llm.text)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
               #     form.text_input(label=key, value=value)            
