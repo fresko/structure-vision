@@ -443,7 +443,7 @@ if uploaded_file:
 
             response_llm = crete_prompt(file_path)
             tab2.subheader("Visualizador de JSON")
-            tab2.json(response_llm.text)
+            json_data = tab2.json(response_llm.text)
             #json_data = text_to_json(response_llm.text)
             #flat_data = flatten_json_data(json_data)
 
@@ -462,7 +462,7 @@ if uploaded_file:
         # Cargar el contenido del archivo JSON
             #json_data = load_json('/json/contrato_test4.json') 
             #flat_data = flatten_json_data(json_data)
-            create_dynamic_form(response_llm.text)
+            create_dynamic_form(json_data)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
               #     form.text_input(label=key, value=value)            
