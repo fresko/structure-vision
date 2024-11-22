@@ -410,7 +410,8 @@ if uploaded_file:
 
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
         tab2.write("Cargue el archivo PDF para iniciar la interpretación." + uploaded_file.name)
-       # resonpse_llm = crete_prompt(uploaded_file.name)
+        myfile = genai.get_file(uploaded_file.name)
+        resonpse_llm = crete_prompt(myfile.uri)
 
         btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
