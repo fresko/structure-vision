@@ -431,9 +431,9 @@ if uploaded_file:
 
             #file_content = uploaded_file.read()  # Get the file content as bytes           
 
-            resonpse_llm = crete_prompt(file_path)
+            response_llm = crete_prompt(file_path)
 
-            flat_data = flatten_json_data(resonpse_llm.text)
+            flat_data = flatten_json_data(response_llm.text)
 
             tab2.write("JSON : " + flat_data)
 
