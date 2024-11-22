@@ -216,7 +216,7 @@ def crete_prompt(file_content):
         {
         "role": "user",
         "parts": [
-            files[0],
+            files,
             prompt,
         ],
         },
