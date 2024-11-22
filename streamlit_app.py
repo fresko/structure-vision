@@ -476,24 +476,7 @@ if uploaded_file:
             if btn_agente:
                 create_dynamic_form(json_data)
                      # Crear formulario
-                form = tab2.form(key='dynamic_form')
-                form_data = {}
-        
-                # Crear campos de formulario dinámicamente
-                for key, value in form.items():
-                    
-                    # Determinar el tipo de campo según el valor
-                    if isinstance(value, bool):
-                        form_data[key] = tab2.checkbox(key, value=value)
-                    elif isinstance(value, (int, float)):
-                        form_data[key] = tab2.number_input(key, value=value)
-                    else:
-                        form_data[key] = tab2.text_input(key, value=str(value))
-        
-                               
-                 # Botón de envío    
-                    submit_button = form.form_submit_button(label='Enviar')
-
+                
                 #if submit_button:
                  #   tab2.success("Formulario enviado con éxito!") 
 
