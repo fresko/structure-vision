@@ -442,15 +442,16 @@ if uploaded_file:
             #file_content = uploaded_file.read()  # Get the file content as bytes           
 
             response_llm = crete_prompt(file_path)
-            tab2.subheader("Visualizador de JSON")           
+                    
             json_data = text_to_json(response_llm.text)
 
             # Convertir el diccionario a una cadena JSON con formato
             json_str = json.dumps(json_data, indent=4)
 
             # Mostrar el JSON en un expander
-            with tab2.expander("Ver JSON", expanded=False):
-                tab2.json(json_data)
+            #with tab2.expander("Ver JSON", expanded=False):
+            tab2.subheader("Visualizador de JSON")   
+            tab2.json(json_data, expanded=False)
 
             #flat_data = flatten_json_data(json_data)
 
