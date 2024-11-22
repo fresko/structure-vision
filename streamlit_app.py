@@ -140,18 +140,18 @@ def create_dynamic_form(json_data):
     st.title("Formulario Dinámico")
     
     # Crear formulario
-    with st.form(key='dynamic_form'):
-        form_data = {}
+    st.form(key='dynamic_form')
+    form_data = {}
         
-        # Crear campos de formulario dinámicamente
-        for key, value in json_data.items():
-            # Determinar el tipo de campo según el valor
-            if isinstance(value, bool):
-                form_data[key] = st.checkbox(key, value=value)
-            elif isinstance(value, (int, float)):
-                form_data[key] = st.number_input(key, value=value)
-            else:
-                form_data[key] = st.text_input(key, value=str(value))
+    # Crear campos de formulario dinámicamente
+    for key, value in json_data.items():
+        # Determinar el tipo de campo según el valor
+        if isinstance(value, bool):
+            form_data[key] = st.checkbox(key, value=value)
+        elif isinstance(value, (int, float)):
+            form_data[key] = st.number_input(key, value=value)
+        else:
+            form_data[key] = st.text_input(key, value=str(value))
         
         # Botón de envío
         submit_button = st.form_submit_button(label='Enviar')
