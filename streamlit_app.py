@@ -182,7 +182,7 @@ def wait_for_files_active(files):
   print("...all files ready")
   print()
 
-def crete_prompt(files):
+def crete_prompt(file_content):
     prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
     # Create the model
     generation_config = {
