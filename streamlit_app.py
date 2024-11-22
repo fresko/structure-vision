@@ -442,9 +442,9 @@ if uploaded_file:
             #file_content = uploaded_file.read()  # Get the file content as bytes           
 
             response_llm = crete_prompt(file_path)
-            tab2.subheader("Visualizador de JSON")
-            tab2.json(response_llm.text)
+            tab2.subheader("Visualizador de JSON")           
             json_data = text_to_json(response_llm.text)
+
             #flat_data = flatten_json_data(json_data)
 
             #tab2.write("JSON : " + flat_data.text)
@@ -475,6 +475,7 @@ if uploaded_file:
 
             if btn_agente:
                 create_dynamic_form(json_data)
+                tab2.json(json_data)
                      # Crear formulario
                 
                 #if submit_button:
