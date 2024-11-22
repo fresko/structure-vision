@@ -444,7 +444,7 @@ if uploaded_file:
             response_llm = crete_prompt(file_path)
             tab2.subheader("Visualizador de JSON")
             tab2.json(response_llm.text)
-            #json_data = text_to_json(response_llm.text)
+            json_data = text_to_json(response_llm.text)
             #flat_data = flatten_json_data(json_data)
 
             #tab2.write("JSON : " + flat_data.text)
@@ -474,7 +474,7 @@ if uploaded_file:
                  #   tab2.success("Formulario enviado con éxito!") 
 
             if btn_agente:
-                create_dynamic_form(response_llm.text)
+                create_dynamic_form(json_data)
                      # Crear formulario
                 form = tab2.form(key='dynamic_form')
                 form_data = {}
