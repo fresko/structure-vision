@@ -424,14 +424,14 @@ if uploaded_file:
             file_path = "/js/" + file_name
 
             with open(file_path, "w") as file:
-               myfilellm = file.write(resonpse_llm.text)
+             file.write(resonpse_llm.text)
 
     # Formulario con cuatro campos y un botón de envío
         with col3:
 
         # Cargar el contenido del archivo JSON
             #json_data = load_json('json/json_test2.json') 
-            flat_data = flatten_json_data(myfilellm)
+            flat_data = flatten_json_data(resonpse_llm)
             #create_dynamic_form(flat_data)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
