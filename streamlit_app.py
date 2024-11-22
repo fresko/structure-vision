@@ -445,10 +445,11 @@ if uploaded_file:
             tab2.subheader("Visualizador de JSON")           
             json_data = text_to_json(response_llm.text)
 
+            # Convertir el diccionario a una cadena JSON con formato
             json_str = json.dumps(json_data, indent=4)
 
             # Mostrar el JSON en un expander
-            with tab2.expander("Ver JSON"):
+            with tab2.expander("Ver JSON", expanded=False):
                 tab2.json(json_str)
 
             #flat_data = flatten_json_data(json_data)
