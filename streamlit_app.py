@@ -446,7 +446,7 @@ if uploaded_file:
             json_data = text_to_json(response_llm.text)
 
             # Convertir el diccionario a una cadena JSON con formato
-            json_str = json.dumps(json_data, indent=4)
+            #json_str = json.dumps(json_data, indent=4)
 
             # Mostrar el JSON en un expander
             #with tab2.expander("Ver JSON", expanded=False):
