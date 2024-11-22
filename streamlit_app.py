@@ -209,7 +209,7 @@ def crete_prompt(file_content):
     print(f"Uploaded file '{files.display_name}' as: {files.uri}")
 
     # Some files have a processing delay. Wait for them to be ready.
-    wait_for_files_active(files)
+    #wait_for_files_active(files)
 
     chat_session = model.start_chat(
     history=[
