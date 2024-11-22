@@ -214,7 +214,7 @@ def crete_prompt(upfile):
         "role": "user",
         "parts": [
             #files[0],
-            upfile[0],
+            upfile,
             prompt_jsonsimple,
         ],
         },
