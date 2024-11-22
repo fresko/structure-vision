@@ -217,7 +217,7 @@ def crete_prompt(file_content):
         "role": "user",
         "parts": [
             files[0],
-            prompt_jsonsimple,
+            "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto",
         ],
         },
     ]
