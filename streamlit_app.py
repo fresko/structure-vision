@@ -110,6 +110,16 @@ def new_file():
 def load_json(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
+
+def text_to_json(text_data):
+    try:
+        # Convertir texto a JSON
+        json_data = json.loads(text_data)
+        return json_data
+    except json.JSONDecodeError as e:
+        st.error(f"Error al convertir texto a JSON: {str(e)}")
+        return None
+
     
 # Función para aplanar y limpiar datos JSON
 def flatten_json_data(json_data):
@@ -432,8 +442,8 @@ if uploaded_file:
             #file_content = uploaded_file.read()  # Get the file content as bytes           
 
             response_llm = crete_prompt(file_path)
-
-            flat_data = flatten_json_data(response_llm.text)
+            json_data = text_to_json(response_llm.text)
+            flat_data = flatten_json_data(json_data)
 
             tab2.write("JSON : " + flat_data)
 
