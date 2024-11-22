@@ -200,13 +200,13 @@ def crete_prompt(upfile):
 
     # TODO Make these files available on the local file system
     # You may need to update the file paths
-    files = [
+    ##files = [
     #upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
-    upload_to_gemini(path_file, mime_type="application/pdf"),
-    ]
+    ##upload_to_gemini(path_file, mime_type="application/pdf"),
+    #]
 
     # Some files have a processing delay. Wait for them to be ready.
-    wait_for_files_active(files)
+    ##wait_for_files_active(files)
 
     chat_session = model.start_chat(
     history=[
@@ -405,7 +405,7 @@ if uploaded_file:
         tab2.write("Este agente utiliza inteligencia artificial para interpretar y analizar el contenido de tu PDF.")
         tab2.image("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif", caption="AI en acción")
         
-        GOOGLE_API_KEY = st.text_input('GOOGLE_API_KEY', type='password')
+        GOOGLE_API_KEY = tab2.text_input('GOOGLE_API_KEY', type='password')
         os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
         genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
