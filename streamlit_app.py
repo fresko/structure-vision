@@ -181,7 +181,7 @@ def wait_for_files_active(files):
   print("...all files ready")
   print()
 
-def crete_prompt(path_file):
+def crete_prompt(upfile):
     prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
     # Create the model
     generation_config = {
@@ -213,7 +213,8 @@ def crete_prompt(path_file):
         {
         "role": "user",
         "parts": [
-            files[0],
+            #files[0],
+            upfile[0],
             prompt_jsonsimple,
         ],
         },
@@ -410,13 +411,13 @@ if uploaded_file:
 
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
         tab2.write("Cargue el archivo PDF para iniciar la interpretación." + uploaded_file.name)
-        myfile = genai.get_file(uploaded_file.name)
+        #myfile = genai.get_file(uploaded_file.name)
         
 
         btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
             tab2.write("Interpretación iniciada...")
-            resonpse_llm = crete_prompt(myfile.uri)
+            resonpse_llm = crete_prompt(uploaded_file)
 
             # Define the file name and path
             file_name = "contrato_test4.json"
