@@ -430,8 +430,8 @@ if uploaded_file:
         with col3:
 
         # Cargar el contenido del archivo JSON
-            #json_data = load_json('json/json_test2.json') 
-            flat_data = flatten_json_data(resonpse_llm)
+            json_data = load_json('json/json_test4.json') 
+            flat_data = flatten_json_data(json_data)
             #create_dynamic_form(flat_data)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
