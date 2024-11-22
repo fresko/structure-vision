@@ -182,7 +182,7 @@ def wait_for_files_active(files):
   print("...all files ready")
   print()
 
-def crete_prompt(up_pathtmp):
+def crete_prompt(files):
     prompt = "The following is a list of the most popular hotels in the world. Please provide a brief description of each hotel, including the number of rooms, the number of beds, and the number of bathrooms. Please also provide the price range for each hotel."
     # Create the model
     generation_config = {
@@ -201,10 +201,10 @@ def crete_prompt(up_pathtmp):
 
     # TODO Make these files available on the local file system
     # You may need to update the file paths
-    files = [
+    #files = [
     ##upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
-    upload_to_gemini(up_pathtmp, mime_type="application/pdf"),
-    ]
+    #upload_to_gemini(up_pathtmp, mime_type="application/pdf"),
+    #]
 
     # Some files have a processing delay. Wait for them to be ready.
     wait_for_files_active(files)
@@ -427,8 +427,10 @@ if uploaded_file:
                 tmp_file.write(uploaded_file.getvalue())
                 file_path = tmp_file.name    
 
+            file_content = uploaded_file.read()  # Get the file content as bytes
+            genai_file = genai.upload_file(file_content, mime_type=uploaded_file.type, display_name=uploaded_file.name)
 
-            resonpse_llm = crete_prompt(file_path)
+            resonpse_llm = crete_prompt(genai_file)
 
             tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
