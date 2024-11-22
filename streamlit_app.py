@@ -433,7 +433,7 @@ if uploaded_file:
 
             resonpse_llm = crete_prompt(file_path)
 
-            tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
+            tab2.write("JSON : " + resonpse_llm.text)
 
             # Define the file name and path
             #file_name = "contrato_test4.json"
