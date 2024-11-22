@@ -411,18 +411,26 @@ if uploaded_file:
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
         tab2.write("Cargue el archivo PDF para iniciar la interpretación." + uploaded_file.name)
         myfile = genai.get_file(uploaded_file.name)
-        resonpse_llm = crete_prompt(myfile.uri)
+        
 
         btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
             tab2.write("Interpretación iniciada...")
+            resonpse_llm = crete_prompt(myfile.uri)
+
+            # Define the file name and path
+            file_name = "contrato_test4.json"
+            file_path = "/js/" + file_name
+
+            with open(file_path, "w") as file:
+               myfilellm= file.write(resonpse_llm)
 
     # Formulario con cuatro campos y un botón de envío
         with col3:
 
         # Cargar el contenido del archivo JSON
-            json_data = load_json('json/json_test2.json') 
-            flat_data = flatten_json_data(json_data)
+            #json_data = load_json('json/json_test2.json') 
+            flat_data = flatten_json_data(myfilellm)
             #create_dynamic_form(flat_data)
             #if btn_agente:
              #   form = tab2.form(key='approval_form')
@@ -440,7 +448,7 @@ if uploaded_file:
                 form_data = {}
         
                 # Crear campos de formulario dinámicamente
-                for key, value in json_data.items():
+                for key, value in resonpse_llm.items():
                     
                     # Determinar el tipo de campo según el valor
                     if isinstance(value, bool):
