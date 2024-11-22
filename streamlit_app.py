@@ -429,9 +429,9 @@ if uploaded_file:
                 tmp_file.write(uploaded_file.getvalue())
                 file_path = tmp_file.name    
 
-            file_content = uploaded_file.read()  # Get the file content as bytes           
+            #file_content = uploaded_file.read()  # Get the file content as bytes           
 
-            resonpse_llm = crete_prompt(file_content)
+            resonpse_llm = crete_prompt(file_path)
 
             tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
