@@ -475,7 +475,7 @@ if uploaded_file:
 
             if btn_agente:
                 create_dynamic_form(json_data,tab2)
-                tab2.json(json_data)
+                #tab2.json(json_data)
                      # Crear formulario
                 
                 #if submit_button:
