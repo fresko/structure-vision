@@ -154,7 +154,7 @@ def create_dynamic_form(json_data):
             form_data[key] = st.text_input(key, value=str(value))
         
         # Botón de envío
-    submit_button = st.form_submit_button(label='Enviar')
+        submit_button = st.form_submit_button(label='Enviar')
         
     if submit_button:
         st.success("Formulario enviado exitosamente!")
