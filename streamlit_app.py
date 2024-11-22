@@ -421,7 +421,7 @@ if uploaded_file:
 
             # Define the file name and path
             file_name = "contrato_test4.json"
-            file_path = "json/" + file_name
+            file_path = "/json/" + file_name
 
             with open(file_path, "w") as file:
              file.write(resonpse_llm.text)
@@ -430,7 +430,7 @@ if uploaded_file:
         with col3:
 
         # Cargar el contenido del archivo JSON
-            json_data = load_json('json/json_test4.json') 
+            json_data = load_json('/json/contrato_test4.json') 
             flat_data = flatten_json_data(json_data)
             #create_dynamic_form(flat_data)
             #if btn_agente:
