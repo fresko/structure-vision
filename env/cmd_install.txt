@@ -1,0 +1,342 @@
+ 
+    6  pip
+    7  
+       sudo apt update
+       sudo apt install python3.13
+    8  python3 --version
+    9  pip
+   10  sudo apt install python3-pip
+   11  pip
+   12  sudo apt update
+   13  pip
+   14  sudo apt upgrate
+   18  sudo apt-get upgrate
+   19  sudo make install
+   20  pip3  install numpy
+   22  sudo pip3  install numpy
+   23  sudo pip install numpy
+   24  curl -O https://bootstrap.pypa.io/get-pip.py
+   25  ll
+   26  sudo python get-pip.py
+   27  sudo python3 get-pip.py
+   28  pip
+   29  apt-get install git
+   30  sudo apt-get install git
+   31  pip
+   32  git
+   33  python3 --version
+   34  pip install streamlit
+   35  streamlit hello  
+   41  streamlit --version
+   42  python -m streamlit hello
+   43  python3 -m streamlit hello
+   ---------------------------
+   44  sudo systemctl status iptables
+   45  # systemctl status iptables
+   46  # systemctl enable iptables
+   47  python3 -m streamlit hello
+   ----------------------------
+   48  sudo firewall-cmd –add-service=http –permanent
+   49  sudo systemctl start clearos-firewall
+   50  # systemctl start iptables
+   51  # systemctl enable iptables
+   52----------------------------
+   53  python3 -m streamlit hello
+   54  # service iptables stop
+   55  python3 -m streamlit hello
+   56  # systemctl restart ufw
+   57  python3 -m streamlit hello
+   58  sudo iptables -L
+   59  # service iptables stop
+   60  sudo python3 -m streamlit hello
+   61  python3 -m streamlit hello
+   62  # service iptables stop
+   63  # service iptables start
+   64  python3 -m streamlit hello
+   65  netstat -na | grep :8080 #
+   66  sudo apt install net-tools
+   67  netstat -na | grep :8080 #
+   68  netstat -na | grep :8501 #
+   69  python3 -m streamlit hello
+   70  less /etc/services
+   71  python3 -m streamlit hello
+   72  netstat -na | grep :8501 #
+   73  python3 -m streamlit hello
+   74  sudo ufw allow 8501
+   75  # service iptables start
+   76  python3 -m streamlit hello
+   77  # service iptables stop
+   78  python3 -m streamlit hello
+   79  sudo iptables -S
+   80  sudo iptables -L -v -n | more.
+   81  sudo iptables -L -v -n | more
+   82  show ip route bgp
+   83  python3 -m streamlit hello
+   84  sudo apt install lynx
+   85  python3 -m streamlit hello
+   86  iperf -c 34.71.125.212
+   87  apt install iperf
+   88  sudo apt install iperf
+   89  iperf -c 34.71.125.212
+   90  sudo iperf -c 34.71.125.212
+   91  python3 -m streamlit hello
+   92  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   93  # Add Docker's official GPG key:
+   94  sudo apt-get update
+   95  sudo apt-get install ca-certificates curl
+   96  sudo install -m 0755 -d /etc/apt/keyrings
+   97  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   98  sudo chmod a+r /etc/apt/keyrings/docker.asc
+   99  # Add the repository to Apt sources:
+  100  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  101    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  102  sudo apt-get update
+  103  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  104  sudo docker run hello-world
+  105  ll
+  106  cd projects/
+  107  ll
+  108  git
+  109  git config --global user.name "fresko"
+  110  git config --global user.email juan.paz.h@gmail.com
+  111  git init
+  112  git clone https://github.com/fresko/structure-vision.git
+  113  git add
+  114  git add .
+  115  git commit -m "Proyecto Front"
+  116  git push origin master
+  117  ll
+  118  structure-vision/
+  119  ll
+  120  cd structure-vision/
+  121  ll
+  122  python3 -m streamlit run streamlit_app.py
+  123  pip install -r requirements
+  124  pip install -r python-dotenv
+  125  pip install python-dotenv
+  126  pip install beautifulsoup4
+  127  pip install lxml
+  128  pip install grobid-client-python
+  129  pip install watchdog
+  130  pip install streamlit-pdf-viewer==0.0.19
+  131  ll
+  132  python3 -m streamlit run streamlit_app.py
+  133  ll
+  134  cd projects/
+  135  ll
+  136  cd structure-vision/
+  137  ll
+  138  cd grobid/
+  139  ll
+  140  cd ..
+  141  docker build -t image_grobid .
+  142  ll
+  143  cd projects/
+  144  git pull
+  145  cd structure-vision/
+  146  git pull
+  147  python3 -m streamlit run streamlit_app.py
+  148  git pull
+  149  python3 -m streamlit run streamlit_app.py
+  150  ll
+  151  cd projects/
+  152  cd structure-vision/
+  153  ll
+  154  python3 -m streamlit run streamlit_app.py
+  155  ll
+  156  cd projects/
+  157  ll
+  158  cd structure-vision/
+  159  ll
+  160  git pull
+  161  python3 -m streamlit run streamlit_app.py
+  162  git pull
+  163  python3 -m streamlit run streamlit_app.py
+  164  git pull
+  165  python3 -m streamlit run streamlit_app.py
+  166  git pull
+  167  python3 -m streamlit run streamlit_app.py
+  168  git pull
+  169  python3 -m streamlit run streamlit_app.py
+  170  git pull
+  171  python3 -m streamlit run streamlit_app.py
+  172  git pull
+  173  python3 -m streamlit run streamlit_app.py
+  174  git pull
+  175  python3 -m streamlit run streamlit_app.py
+  176  git pull
+  177  python3 -m streamlit run streamlit_app.py
+  178  cd projects/
+  179  ll
+  180  cd structure-vision/
+  181  ll
+  182  python3 -m streamlit run streamlit_app.py
+  183  git pull
+  184  python3 -m streamlit run streamlit_app.py
+  185  git pull
+  186  python3 -m streamlit run streamlit_app.py
+  187  git pull
+  188  python3 -m streamlit run streamlit_app.py
+  189  git pull
+  190  python3 -m streamlit run streamlit_app.py
+  191  git pull
+  192  python3 -m streamlit run streamlit_app.py
+  193  git pull
+  194  python3 -m streamlit run streamlit_app.py
+  195  git pull
+  196  python3 -m streamlit run streamlit_app.py
+  197  git pull
+  198  python3 -m streamlit run streamlit_app.py
+  199  git pull
+  200  python3 -m streamlit run streamlit_app.py
+  201  git pull
+  202  python3 -m streamlit run streamlit_app.py
+  203  git pull
+  204  python3 -m streamlit run streamlit_app.py
+  205  git pull
+  206  python3 -m streamlit run streamlit_app.py
+  207  git pull
+  208  python3 -m streamlit run streamlit_app.py
+  209  git pull
+  210  python3 -m streamlit run streamlit_app.py
+  211  git pull
+  212  python3 -m streamlit run streamlit_app.py
+  213  cd projects/
+  214  cd structure-vision/
+  215  ll
+  216  git pull
+  217  python3 -m streamlit run streamlit_app.py
+  218  cd ..
+  219  pip install flatten-json
+  220  git pull
+  221  cd structure-vision/
+  222  ll
+  223  git pull
+  224  python3 -m streamlit run streamlit_app.py
+  225  git pull
+  226  python3 -m streamlit run streamlit_app.py
+  227  git pull
+  228  python3 -m streamlit run streamlit_app.py
+  229  git pull
+  230  python3 -m streamlit run streamlit_app.py
+  231  ll
+  232  pip install openai==0.28.1 langchain faiss-cpu==1.7.4 PyPDF2==3.0.1
+  233  pip install google-generativeai
+  234  cd projects/
+  235  ll
+  236  cd structure-vision/
+  237  git pull
+  238  python3 -m streamlit run streamlit_app.py
+  239  cd projects/
+  240  ll
+  241  git pull
+  242  cd structure-vision/
+  243  git pull
+  244  ll
+  245  git pull
+  246  python3 -m streamlit run streamlit_app.py
+  247  git pull
+  248  python3 -m streamlit run streamlit_app.py
+  249  git pull
+  250  python3 -m streamlit run streamlit_app.py
+  251  git pull
+  252  python3 -m streamlit run streamlit_app.py
+  253  ll
+  254  cd ..
+  255  cd json
+  256  ll
+  257  cd structure-vision/
+  258  cd json/
+  259  ll
+  260  cd ..
+  261  ll
+  262  git pull
+  263  python3 -m streamlit run streamlit_app.py
+  264  ll
+  265  cd json/
+  266  ll
+  267  cd ..
+  268  ll
+  269  find json_test4.json
+  270  cd ..
+  271  ll
+  272  cd ..
+  273  ll
+  274  cd ..
+  275  ll
+  276  cd impacta_inc/
+  277  ll
+  278  cd projects/
+  279  ll
+  280  cd structure-vision/
+  281  ll
+  282  cd .streamlit/
+  283  ll
+  284  cd ..
+  285  ll
+  286  cd json/
+  287  ll
+  288  cd ..
+  289  git pull
+  290  python3 -m streamlit run streamlit_app.py
+  291  git pull
+  292  python3 -m streamlit run streamlit_app.py
+  293  ll
+  294  cd json/
+  295  ll
+  296  cd ..
+  297  git pull
+  298  python3 -m streamlit run streamlit_app.py
+  299  git pull
+  300  python3 -m streamlit run streamlit_app.py
+  301  git pull
+  302  python3 -m streamlit run streamlit_app.py
+  303  git pull
+  304  python3 -m streamlit run streamlit_app.py
+  305  git pull
+  306  python3 -m streamlit run streamlit_app.py
+  307  git pull
+  308  python3 -m streamlit run streamlit_app.py
+  309  git pull
+  310  python3 -m streamlit run streamlit_app.py
+  311  git pull
+  312  python3 -m streamlit run streamlit_app.py
+  313  cd projects/
+  314  cd structure-vision/
+  315  git pull
+  316  python3 -m streamlit run streamlit_app.py
+  317  git pull
+  318  python3 -m streamlit run streamlit_app.py
+  319  git pull
+  320  python3 -m streamlit run streamlit_app.py
+  321  git pull
+  322  python3 -m streamlit run streamlit_app.py
+  323  git pull
+  324  python --version
+  325  python3 --version
+  326  python -m pip install --upgrade pip
+  327  cd ..
+  328  python3 -m pip install --upgrade pip
+  329  ll
+  330  sudo python3 -m pip install --upgrade pip
+  331  python3 -m pip install --upgrade pip
+  332  sudo apt update
+  333  sudo apt install python3.11
+  334  python3 --version
+  335  pip install virtualenv
+  336  python3 --version
+  337  virtualenv -p python3.11 
+  338  virtualenv -p python3.11 myenv
+  339  source myenv/bin/activate
+  340  ll
+  341  python3 --version
+  342  ll
+  343  cd ..
+  344  ll
+  345  cd projects/
+  346  ll
+  347  cd structure-vision/
+  348  git pull
+  349  python3 -m streamlit run streamlit_app.py
+  350  history
+impacta_inc@vmpoc:~$ 
