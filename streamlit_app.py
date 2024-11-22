@@ -205,6 +205,8 @@ def crete_prompt(files):
     ##upload_to_gemini("/content/INTERCONTINENTAL MIAMI.pdf", mime_type="application/pdf"),
     #upload_to_gemini(up_pathtmp, mime_type="application/pdf"),
     #]
+    files = genai.upload_file(file_content, mime_type=uploaded_file.type, display_name=uploaded_file.name)
+    print(f"Uploaded file '{files.display_name}' as: {files.uri}")
 
     # Some files have a processing delay. Wait for them to be ready.
     wait_for_files_active(files)
@@ -427,10 +429,9 @@ if uploaded_file:
                 tmp_file.write(uploaded_file.getvalue())
                 file_path = tmp_file.name    
 
-            file_content = uploaded_file.read()  # Get the file content as bytes
-            genai_file = genai.upload_file(file_content, mime_type=uploaded_file.type, display_name=uploaded_file.name)
+            file_content = uploaded_file.read()  # Get the file content as bytes           
 
-            resonpse_llm = crete_prompt(genai_file)
+            resonpse_llm = crete_prompt(file_content)
 
             tab2.write("Cargue el archivo PDF para iniciar la interpretación. " + resonpse_llm)
 
