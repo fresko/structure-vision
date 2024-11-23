@@ -160,7 +160,7 @@ def wait_for_files_active(files):
     print("...all files ready")
     print()
 
-def crete_prompt(file_content):
+def crete_prompt(file_content,selected_llm):
     prompt = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
     generation_config = {
         "temperature": 1,
@@ -170,7 +170,8 @@ def crete_prompt(file_content):
         "response_mime_type": "application/json",
     }
     model = genai.GenerativeModel(
-        model_name="gemini-1.5-flash-002",
+        #model_name="gemini-1.5-flash-002",       
+        model_name={selected_llm},       
         generation_config=generation_config,
     )
     files = genai.upload_file(file_content, mime_type="application/pdf")
@@ -323,13 +324,23 @@ if uploaded_file:
         os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
         genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
+              
+        # Crear una lista de tres valores
+        options = ["gemini-1.5-flash-002", "gemini-1.0-pro", "gemini-1.5-pro"]
+        
+        # Crear un selectbox en Streamlit
+        selected_llm = tab2.selectbox("Selecciona el modelo LLM:", options)
+        
+        # Mostrar el valor del ítem seleccionado
+        st.write(f"Has seleccionado: {selected_llm}")
+        
         btn_agente = tab2.button("Iniciar Interpretación")
         if btn_agente:
             tab2.write("Interpretación iniciada...")
             with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
                 tmp_file.write(uploaded_file.getvalue())
                 file_path = tmp_file.name
-            response_llm = crete_prompt(file_path)
+            response_llm = crete_prompt(file_path,selected_llm)
             json_data = text_to_json(response_llm.text)
             tab2.subheader("Visualizador de JSON")   
             tab2.json(json_data, expanded=False)
