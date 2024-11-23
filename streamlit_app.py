@@ -171,7 +171,7 @@ def crete_prompt(file_content,selected_llm):
     }
     model = genai.GenerativeModel(
         #model_name="gemini-1.5-flash-002",       
-        model_name={selected_llm},       
+        model_name=selected_llm,       
         generation_config=generation_config,
     )
     files = genai.upload_file(file_content, mime_type="application/pdf")
