@@ -45,7 +45,7 @@ if 'page_selection' not in st.session_state:
 
 # Configuración de la página de Streamlit
 st.set_page_config(
-    page_title="Formulario de Aprobación",
+    page_title="AGente AI - Documentos/Facturas",
     page_icon="🤖",
     initial_sidebar_state="expanded",  # Cambiar a 'collapsed' para permitir ocultar la barra lateral   
     menu_items={
@@ -193,7 +193,7 @@ def crete_prompt(file_content,selected_llm):
 # Configuración de la barra lateral
 with st.sidebar:
     st.title("Formulario de Aprobación ")
-    st.subheader("Cargue de Alojammiento con Agentes AI .")
+    st.subheader("Cargue de Documentos con Agentes AI .")
     uploaded_file = st.file_uploader("Upload an article",
                                      type=("pdf"),
                                      on_change=new_file,
@@ -201,7 +201,7 @@ with st.sidebar:
     st.header("Contenido del PDF")
     enable_text = st.toggle('Render text in PDF', value=False, disabled=not st.session_state['uploaded'],
                             help="Enable the selection and copy-paste on the PDF")
-    st.header("Alojamientos - Secciones")
+    st.header("Documento - Secciones")
     highlight_title = st.toggle('Hotel', value=True, disabled=not st.session_state['uploaded'])
     highlight_person_names = st.toggle('General', value=True, disabled=not st.session_state['uploaded'])
     highlight_affiliations = st.toggle('Habitaciones', value=True, disabled=not st.session_state['uploaded'])
@@ -326,7 +326,7 @@ if uploaded_file:
         prompt_jsonsimple = "identifica los grupos de informacion o entidades de negocio y regeresalo en formato json simple clave valor con los datos  contenidos en el archivo adjunto"
               
         # Crear una lista de tres valores
-        options = ["gemini-1.5-flash-002", "gemini-1.0-pro", "gemini-1.5-pro"]
+        options = ["gemini-1.5-flash-002", "gemini-1.0-pro", "gemini-1.5-pro","gemini-2.0-flash-exp","gemini-2.0-pro-exp"]
         
         # Crear un selectbox en Streamlit
         selected_llm = tab2.selectbox("Selecciona el modelo LLM:", options)
