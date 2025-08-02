@@ -14,7 +14,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 dotenv.load_dotenv(override=True)
 
-# Manejo de Sessiones
+# Manejo de Sessioneså
 if 'doc_id' not in st.session_state:
     st.session_state['doc_id'] = None
 
